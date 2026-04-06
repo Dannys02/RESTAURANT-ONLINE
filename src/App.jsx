@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
     return (
         <div className="bg-slate-900">
-            <header className="fixed top-0 w-full flex justify-between items-center p-4 z-[100]">
+            <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 z-100">
                 <div className="flex items-center text-yellow-500 font-bold">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ function App() {
                     </svg>
                     <h1 className="text-2xl">Restoran</h1>
                 </div>
-                <nav className="hidden md:flex items-center space-x-5 text-white uppercase">
+                <nav className="hidden md:flex items-center space-x-5 text-white font-semibold uppercase">
                     <a href="#" className="text-yellow-500">Beranda</a>
                     <a href="#">Tentang</a>
                     <a href="#">Jasa</a>
