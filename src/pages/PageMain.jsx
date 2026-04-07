@@ -1,3 +1,5 @@
+import { User } from "lucide-react";
+
 function PageMain() {
   return (
     <>
@@ -54,16 +56,16 @@ function PageMain() {
                     rasa autentik yang tak terlupakan oleh chef berpengalaman.
                   </p>
 
-                  <div className="flex items-center text-sm gap-4">
+                  <div className="flex items-center text-sm md:text-base gap-4">
                     <a
-                      href="#"
-                      className="inline-block rounded-lg bg-yellow-500 px-8 py-3 font-semibold text-red-900 transition-all easex hover:bg-yellow-400 hover:shadow-lg active:scale-95"
+                      href="#menu"
+                      className="inline-block rounded-lg bg-yellow-500 px-6 py-3 font-semibold text-red-900 transition-all easex hover:bg-yellow-400 hover:shadow-lg active:scale-95"
                     >
                       Lihat Menu
                     </a>
                     <a
                       href="#"
-                      className="inline-block rounded-lg border-2 border-yellow-500 px-8 py-3 font-semibold text-yellow-500 transition-all easex hover:bg-yellow-500 hover:text-red-900 active:scale-95"
+                      className="inline-block rounded-lg border-2 border-yellow-500 px-6 py-3 font-semibold text-yellow-500 transition-all easex hover:bg-yellow-500 hover:text-red-900 active:scale-95"
                     >
                       Pesan Sekarang
                     </a>
@@ -78,7 +80,7 @@ function PageMain() {
                   <img
                     src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/ac/fb/9e/ha-noi-s-traditional.jpg"
                     alt="Menu Makanan"
-                    className="animation-rotate relative h-68 w-64 rounded-full border-8 border-white object-cover sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
+                    className="animation-rotate relative h-64 aspect-square rounded-full border-8 border-white object-cover sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
                   />
                 </div>
               </div>
@@ -87,7 +89,7 @@ function PageMain() {
         </div>
       </section>
 
-      <section className="container mx-auto pt-12 px-4">
+      <section className="container mx-auto pt-8 px-4">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
           Tentang Kami
         </h2>
@@ -136,34 +138,122 @@ function PageMain() {
             </h2>
 
             <p className="text-gray-500 mb-6 max-w-lg">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-              diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem
-              sit.
+              Di <span className="text-yellow-600">RESTAURANT</span>, kami
+              percaya bahwa makanan bukan sekadar pengisi perut, melainkan
+              sebuah cerita. Berawal dari kecintaan kami pada bahan lokal
+              pilihan dan rempah autentik, kami menghadirkan simfoni rasa yang
+              memanjakan lidah.
             </p>
 
             <p className="text-gray-500 mb-6 max-w-lg">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-              diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-              lorem sit clita duo justo magna dolore erat amet
+              Setiap piring yang kami sajikan adalah hasil kurasi penuh
+              ketelitian—memadukan tradisi kuliner dengan sentuhan modern. Kami
+              mengundang Anda untuk duduk sejenak, melepas lelah, dan merayakan
+              momen berharga bersama orang tercinta dalam kehangatan suasana
+              kami.
             </p>
 
             <div className="flex flex-col md:flex-row items-start space-y-4 md:space-x-4">
-              <div className="flex items-center justify-center px-4 py-1.5 border-l-6 border-yellow-500 space-x-4">
-                <h2 className=" font-bold text-6xl text-yellow-500">15</h2>
+              <div className="bg-gray-100 flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-4">
+                <h2 className=" font-bold pb-2 text-5xl lg:text-6xl text-yellow-500">15</h2>
                 <div>
                   <p className="text-gray-500">Tahun</p>
                   <p className="uppercase font-medium">Pengalaman</p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-center px-4 py-1.5 border-l-6 border-yellow-500 space-x-4">
-                <h2 className=" font-bold text-6xl text-yellow-500">50</h2>
+              <div className="bg-gray-100 flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-4">
+                <h2 className=" font-bold pb-2 text-5xl lg:text-6xl text-yellow-500">50</h2>
                 <div>
                   <p className="text-gray-500">Populer</p>
                   <p className="uppercase font-medium">Master Chefs</p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-8 pt-8 px-8 bg-gray-100">
+        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
+          Jasa Yang Kami Sediakan
+        </h2>
+
+        <div className="container mx-auto px-4 md:px-12">
+          <div className="grid gird-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+            <div className="group bg-white shadow-sm shadow-gray-100 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
+              <User className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease" size={60} />
+              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">Master Chefs</h2>
+              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
+                amet diam
+              </p>
+            </div>
+
+
           </div>
         </div>
       </section>
