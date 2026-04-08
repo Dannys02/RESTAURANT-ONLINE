@@ -1,39 +1,228 @@
+import React, { useState } from "react";
 import { User, Coffee, Hamburger, Utensils } from "lucide-react";
 
+const categories = [
+  {
+    id: "sarapan",
+    side_label: "Pupolar",
+    label: "Sarapan",
+    icon: <Coffee size={38} />,
+  },
+  {
+    id: "launch",
+    side_label: "Special",
+    label: "Launch",
+    icon: <Hamburger size={38} />,
+  },
+  {
+    id: "dinner",
+    side_label: "Lovely",
+    label: "Dinner",
+    icon: <Utensils size={38} />,
+  },
+];
+
+const sarapan = [
+  {
+    id: 1,
+    title: "Nasi Uduk Betawi",
+    price: "Rp 15.000",
+    description: "Nasi uduk harum dengan bihun, tempe orek, dan sambal.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+  {
+    id: 2,
+    title: "Bubur Ayam Kaldu",
+    price: "Rp 12.000",
+    description: "Bubur lembut dengan cakwe, ayam suwir, dan kerupuk.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+  {
+    id: 3,
+    title: "Lontong Sayur",
+    price: "Rp 15.000",
+    description: "Lontong dengan kuah gulai labu siam dan telur rebus.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+  {
+    id: 4,
+    title: "Omelet Sayur",
+    price: "Rp 18.000",
+    description: "Telur dadar tebal dengan potongan wortel dan daun bawang.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+  {
+    id: 5,
+    title: "Pancake Madu",
+    price: "Rp 20.000",
+    description: "Pancake lembut dengan siraman madu murni dan mentega.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+  {
+    id: 6,
+    title: "Sandwich Gandum",
+    price: "Rp 22.000",
+    description: "Roti gandum isi telur, keju, dan selada segar.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+  {
+    id: 7,
+    title: "Nasi Kuning",
+    price: "Rp 15.000",
+    description: "Nasi kuning gurih dengan perkedel dan telur suwir.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+  {
+    id: 8,
+    title: "Bubur Kacang Ijo",
+    price: "Rp 10.000",
+    description: "Kacang hijau manis dengan santan kental hangat.",
+    image:
+      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+  },
+];
+
+const launch = [
+  {
+    id: 1,
+    title: "Ayam Goreng Penyet",
+    price: "Rp 25.000",
+    description: "Ayam goreng dengan sambal korek super pedas.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    id: 2,
+    title: "Soto Ayam Lamongan",
+    price: "Rp 20.000",
+    description: "Soto ayam kuah kuning dengan taburan koya gurih.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    id: 3,
+    title: "Gado-Gado Siram",
+    price: "Rp 18.000",
+    description: "Sayuran lengkap dengan saus kacang yang dihaluskan.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    id: 4,
+    title: "Ikan Bakar Nila",
+    price: "Rp 35.000",
+    description: "Ikan nila bakar bumbu kecap pedas manis.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    id: 5,
+    title: "Nasi Padang Komplit",
+    price: "Rp 30.000",
+    description: "Nasi dengan rendang sapi, daun singkong, dan gulai.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    id: 6,
+    title: "Mie Goreng Seafood",
+    price: "Rp 28.000",
+    description: "Mie goreng dengan udang, cumi, dan bakso ikan.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    id: 7,
+    title: "Sate Kambing",
+    price: "Rp 45.000",
+    description: "Sate kambing muda dengan bumbu kecap dan irisan tomat.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    id: 8,
+    title: "Rawon Daging",
+    price: "Rp 35.000",
+    description: "Sup daging hitam khas Jatim dengan tauge pendek.",
+    image:
+      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+];
+
+const dinner = [
+  {
+    id: 1,
+    title: "Sop Buntut",
+    price: "Rp 65.000",
+    description: "Sop buntut sapi premium dengan sayuran segar.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+  {
+    id: 2,
+    title: "Steak Ayam BBQ",
+    price: "Rp 40.000",
+    description: "Dada ayam panggang dengan saus BBQ dan kentang.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+  {
+    id: 3,
+    title: "Nasi Goreng Spesial",
+    price: "Rp 25.000",
+    description: "Nasi goreng dengan telur mata sapi dan ayam goreng.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+  {
+    id: 4,
+    title: "Capcay Kuah",
+    price: "Rp 22.000",
+    description: "Tumisan berbagai macam sayuran dengan kuah kental.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+  {
+    id: 5,
+    title: "Sate Taichan",
+    price: "Rp 25.000",
+    description: "Sate ayam putih polos dengan sambal pedas jeruk nipis.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+  {
+    id: 6,
+    title: "Fettuccine Carbonara",
+    price: "Rp 45.000",
+    description: "Pasta krim lembut dengan topping smoked beef.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+  {
+    id: 7,
+    title: "Bakmi Godog Jawa",
+    price: "Rp 20.000",
+    description: "Bakmi rebus khas Jawa dengan campuran telur bebek.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+  {
+    id: 8,
+    title: "Gurame Asam Manis",
+    price: "Rp 55.000",
+    description: "Ikan gurame fillet goreng tepung dengan saus nanas.",
+    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+  },
+];
+
 function PageMain() {
-
-  const food = [
-    { id: 1, title: "Nasi Uduk Spesial", price: "Rp 25.000", description: "Nasi uduk gurih dengan semur jengkol dan ayam goreng.", image: "/images/nasi-uduk.jpg" },
-    { id: 2, title: "Bubur Ayam Cianjur", price: "Rp 15.000", description: "Bubur lembut dengan topping melimpah dan kuah kuning.", image: "/images/bubur-ayam.jpg" },
-    { id: 3, title: "Sate Ayam Madura", price: "Rp 30.000", description: "Sate ayam dengan bumbu kacang kental dan lontong.", image: "/images/sate-ayam.jpg" },
-    { id: 4, title: "Nasi Goreng Gila", price: "Rp 28.000", description: "Nasi goreng pedas dengan campuran sosis, bakso, dan telur.", image: "/images/nasgor.jpg" },
-    { id: 5, title: "Soto Betawi", price: "Rp 35.000", description: "Soto daging sapi kuah santan dengan emping renyah.", image: "/images/soto-betawi.jpg" },
-    { id: 6, title: "Ayam Bakar Taliwang", price: "Rp 45.000", description: "Ayam bakar khas Lombok dengan bumbu pedas meresap.", image: "/images/ayam-taliwang.jpg" },
-    { id: 7, title: "Gado-Gado", price: "Rp 20.000", description: "Sayuran segar dengan siraman saus kacang autentik.", image: "/images/gado-gado.jpg" },
-    { id: 8, title: "Mie Ayam Jamur", price: "Rp 22.000", description: "Mie kenyal dengan topping ayam bumbu jamur dan pangsit.", image: "/images/mie-ayam.jpg" }
-  ];
-
-  const drinks = [
-    { id: 1, title: "Es Teh Manis", price: "Rp 5.000", description: "Teh melati segar dengan gula asli.", image: "/images/es-teh.jpg" },
-    { id: 2, title: "Jus Alpukat Kocok", price: "Rp 18.000", description: "Alpukat mentega dengan topping cokelat kental.", image: "/images/jus-alpukat.jpg" },
-    { id: 3, title: "Kopi Susu Gula Aren", price: "Rp 20.000", description: "Espresso base dengan susu segar dan gula aren.", image: "/images/kopi-aren.jpg" },
-    { id: 4, title: "Wedang Jahe", price: "Rp 12.000", description: "Minuman jahe hangat untuk stamina tubuh.", image: "/images/wedang-jahe.jpg" },
-    { id: 5, title: "Es Jeruk Peras", price: "Rp 10.000", description: "Jeruk peras murni tanpa pemanis buatan.", image: "/images/es-jeruk.jpg" },
-    { id: 6, title: "Matcha Latte", price: "Rp 25.000", description: "Bubuk matcha premium dengan steamed milk.", image: "/images/matcha.jpg" },
-    { id: 7, title: "Smoothie Berry", price: "Rp 22.000", description: "Campuran strawberry dan blueberry segar.", image: "/images/smoothie.jpg" },
-    { id: 8, title: "Lemon Tea Hot/Ice", price: "Rp 8.000", description: "Paduan teh dan segarnya irisan lemon.", image: "/images/lemon-tea.jpg" }
-  ];
-
-  const desserts = [
-    { id: 1, title: "Pisang Goreng Keju", price: "Rp 15.000", description: "Pisang kepok manis dengan taburan keju melimpah.", image: "/images/pisang-keju.jpg" },
-    { id: 2, title: "Puding Cokelat", price: "Rp 12.000", description: "Puding cokelat lembut dengan vla vanilla.", image: "/images/puding.jpg" },
-    { id: 3, title: "Es Krim Gelato", price: "Rp 25.000", description: "Dua scoop gelato dengan varian rasa pilihan.", image: "/images/gelato.jpg" },
-    { id: 4, title: "Brownies Panggang", price: "Rp 20.000", description: "Brownies cokelat dengan tekstur fudgy.", image: "/images/brownies.jpg" },
-    { id: 5, title: "Klepon Lumer", price: "Rp 10.000", description: "Kue tradisional dengan isi gula merah cair.", image: "/images/klepon.jpg" },
-    { id: 6, title: "Cheesecake", price: "Rp 30.000", description: "Kue keju lembut dengan lapisan biskuit di bawah.", image: "/images/cheesecake.jpg" },
-    { id: 7, title: "Salad Buah", price: "Rp 20.000", description: "Potongan buah segar dengan dressing mayo manis.", image: "/images/salad-buah.jpg" },
-    { id: 8, title: "Mango Sticky Rice", price: "Rp 28.000", description: "Ketan gurih disajikan dengan mangga manis.", image: "/images/mango-rice.jpg" }
-  ];
+  const [category, setCategory] = useState("sarapan");
+  const MENU_DATA = {
+    sarapan: sarapan,
+    launch: launch,
+    dinner: dinner,
+  };
+  const currentMenu = MENU_DATA[category];
 
   return (
     <>
@@ -212,7 +401,7 @@ function PageMain() {
         </div>
       </section>
 
-      <section id="service" className="mt-8 py-8 bg-gray-100">
+      <section id="service" className="py-12 bg-gray-100">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
           Jasa Yang Kami Sediakan
         </h2>
@@ -334,50 +523,55 @@ function PageMain() {
         </div>
       </section>
 
-      <section id="menu" className="mt-8 pp-8">
+      <section id="menu" className="py-12">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
-          Pilihan Menu Populer
+          Menu Kami
         </h2>
 
-        <div className="container w-fit mx-auto flex justify-center items-center mb-12 space-x-12 border-b-2 border-gray-200">
-          <div className="flex items-center pb-4 cursor-pointer border-b-2 border-orange-500 space-x-2">
-            <h5>
-              <Coffee className="text-orange-500" size={45} />
-            </h5>
-            <div className="">
-              <p className="text-gray-500">Popular</p>
-              <p className="uppercase font-semibold">Breakfast</p>
-            </div>
-          </div>
-   
-          <div className="flex items-center pb-4 cursor-pointer space-x-2">
-            <h5>
-              <Hamburger className="text-orange-500" size={45} />
-            </h5>
-            <div className="">
-              <p className="text-gray-500">Special</p>
-              <p className="uppercase font-semibold">Launch</p>
-            </div>
-          </div>
-
-          <div className="flex items-center pb-4 cursor-pointer space-x-2">
-            <h5>
-              <Utensils className="text-orange-500" size={45} />
-            </h5>
-            <div className="">
-              <p className="text-gray-500">Lovely</p>
-              <p className="uppercase font-semibold">Dinner</p>
-            </div>
-          </div>
+        <div className="container w-fit mx-auto flex justify-center items-center mb-12 space-x-6 border-b-2 border-gray-200">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setCategory(cat.id)}
+              className={`flex items-center pb-4 cursor-pointer space-x-2 border-b-2 ${category === cat.id ? "border-orange-500" : "border-white"}`}
+            >
+              <h5 className="text-orange-500">{cat.icon}</h5>
+              <div className="text-left text-sm">
+                <p className="text-gray-500">{cat.side_label}</p>
+                <p className="uppercase font-bold">{cat.label}</p>
+              </div>
+            </button>
+          ))}
         </div>
 
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid-cols-1 md:grid-cols-2">
-
-            <div className="">
-
-            </div>
-
+        <div className="container w-full mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-4 lg:gap-6">
+            {currentMenu.map((item) => (
+              <div
+                key={item.id}
+                className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer"
+              >
+                <div className="w-full h-48">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover rounded-t-md"
+                  />
+                </div>
+                <div className="p-4 flex flex-col h-full">
+                  <h2 className="font-bold text-xl mb-2">{item.title}</h2>
+                  <p className="text-gray-700 mb-4 flex-grow">
+                    {item.description}
+                  </p>
+                  <div className="flex items-center justify-between mt-auto">
+                    <button className="py-2 px-6 bg-orange-500 rounded-md text-white">
+                      Pesan
+                    </button>
+                    <p className="text-gray-700 italic">{item.price}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
