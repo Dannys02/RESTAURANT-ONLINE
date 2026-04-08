@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+* {
+  scroll-behavior: smooth;
+}
+
 .animation-rotate {
   animation: rotate 30s infinite linear;
 }
