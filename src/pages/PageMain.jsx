@@ -296,6 +296,21 @@ function PageMain() {
     dinner: dinner,
   };
   const currentMenu = ALL_MENUS[category] || [];
+  // whatsapp message menu
+  const handleWa = (food) => {
+    const phoneNumber = "6285645837298";
+
+    const message =
+      `Halo, saya ingin memesan menu berikut:%0A%0A` +
+      `*Menu:* ${food.title}%0A` +
+      `*Harga:* ${food.price}%0A` +
+      `*Deskripsi:* ${food.description}%0A%0A` +
+      `Mohon segera diproses ya, terima kasih!`;
+
+    const waUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(waUrl, "_blank");
+  };
 
   return (
     <main>
@@ -497,28 +512,31 @@ function PageMain() {
 
         <div className="container w-full mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-4 lg:gap-6">
-            {currentMenu.map((item) => (
+            {currentMenu.map((food) => (
               <div
-                key={item.id}
+                key={food.id}
                 className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer"
               >
                 <div className="w-full h-48">
                   <img
-                    src={item.image}
-                    alt={item.title}
+                    src={food.image}
+                    alt={food.title}
                     className="h-full w-full object-cover rounded-t-md"
                   />
                 </div>
                 <div className="p-4 flex flex-col h-full">
-                  <h2 className="font-bold text-xl mb-2">{item.title}</h2>
+                  <h2 className="font-bold text-xl mb-2">{food.title}</h2>
                   <p className="text-gray-700 mb-4 flex-grow">
-                    {item.description}
+                    {food.description}
                   </p>
                   <div className="flex items-center justify-between mt-auto">
-                    <button className="py-2 px-6 bg-orange-500 rounded-md text-white cursor-pointer">
+                    <button
+                      onClick={() => handleWa(food)}
+                      className="py-2 px-6 bg-orange-500 rounded-md text-white cursor-pointer"
+                    >
                       Pesan
                     </button>
-                    <p className="text-gray-700 italic">{item.price}</p>
+                    <p className="text-gray-700 italic">{food.price}</p>
                   </div>
                 </div>
               </div>
@@ -601,10 +619,11 @@ function PageMain() {
               </div>
 
               <div className="w-full h-64 bg-gray-300 rounded-2xl overflow-hidden transition-all duration-500">
-                <iframe className="h-full w-full"
+                <iframe
+                  className="h-full w-full"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.496082055429!2d114.15515417413027!3d-8.352760584158618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd154d9bec38cf9%3A0x8c62fbc05274d015!2sSMK%20Muhammadiyah%201%20Genteng!5e0!3m2!1sid!2sid!4v1775723763470!5m2!1sid!2sid"
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>

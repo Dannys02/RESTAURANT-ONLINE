@@ -117,10 +117,10 @@ function Footer() {
                     />
                   </svg>
                 </div>
-                <p>Jl. Kenangan Indah No. 12, Jakarta Selatan, Indonesia</p>
+                <p>Jl. KH Imam Bahri No.10, Jawa Timur, Indonesia</p>
               </div>
               <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/N26JHsQbBHwLKL7B6"
                 target="_blank"
                 className="inline-block mt-2 bg-slate-800 hover:bg-slate-700 text-yellow-500 px-4 py-2 rounded-lg text-sm font-semibold transition-all border border-yellow-500/30"
               >
@@ -130,7 +130,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Garis Pemisah & Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
           <p>© 2026 Restoran UMKM. All rights reserved.</p>
         </div>
