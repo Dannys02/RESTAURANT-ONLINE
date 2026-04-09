@@ -1,6 +1,7 @@
-function NavbarMain() {
+function NavbarMain({ open, btnBurger, handlePesanSekarang }) {
+
   return (
-    <header className="relative z-100 flex justify-between items-center px-6 py-4">
+    <header className="relative z-20 flex justify-between items-center px-6 py-4">
       <div className="flex items-center text-yellow-500 font-bold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -22,11 +23,48 @@ function NavbarMain() {
         <a href="#service">Jasa</a>
         <a href="#menu">Menu</a>
         <a href="#contact">Kontak</a>
-        <button className="px-4 py-2 bg-yellow-500 text-white rounded-md ">
+        <button
+          onClick={handlePesanSekarang}
+          className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 transition-all easex text-red-900 cursor-pointer rounded-md "
+        >
           Pesan Sekarang
         </button>
       </nav>
-      <div className="block md:hidden text-2xl text-white">☰</div>
+      <button
+        onClick={btnBurger}
+        className="relative z-50 block md:hidden text-2xl text-white"
+      >
+        {open ? "✕" : "☰"}
+      </button>
+
+      <div
+        className={`
+        fixed top-0 left-0 w-full h-screen bg-gray-900 flex flex-col items-center justify-center space-y-8 text-white text-xl font-bold uppercase transition-transform duration-300 ease-in-out z-40
+        ${open ? "translate-x-0" : "translate-x-full"} md:hidden
+      `}
+      >
+        <a href="#" onClick={btnBurger}>
+          Beranda
+        </a>
+        <a href="#about" onClick={btnBurger}>
+          Tentang
+        </a>
+        <a href="#service" onClick={btnBurger}>
+          Jasa
+        </a>
+        <a href="#menu" onClick={btnBurger}>
+          Menu
+        </a>
+        <a href="#contact" onClick={btnBurger}>
+          Kontak
+        </a>
+        <button
+          onClick={handlePesanSekarang}
+          className="px-6 py-3 bg-yellow-500 text-red-900 rounded-md"
+        >
+          Pesan Sekarang
+        </button>
+      </div>
     </header>
   );
 }

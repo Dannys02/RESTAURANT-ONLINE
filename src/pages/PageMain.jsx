@@ -94,7 +94,7 @@ const sarapan = [
     price: "Rp 15.000",
     description: "Nasi uduk harum dengan bihun, tempe orek, dan sambal.",
     image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+      "https://www.dapurkintamani.com/wp-content/uploads/2021/08/nasi-uduk.webp",
   },
   {
     id: 2,
@@ -102,7 +102,7 @@ const sarapan = [
     price: "Rp 12.000",
     description: "Bubur lembut dengan cakwe, ayam suwir, dan kerupuk.",
     image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+      "https://storage.googleapis.com/bakingworld-web-production/uploads/media/content/55f3a24a3d718dc0385316c4d5cd0e4d_resize_w1000-1686042924329.jpg",
   },
   {
     id: 3,
@@ -110,7 +110,7 @@ const sarapan = [
     price: "Rp 15.000",
     description: "Lontong dengan kuah gulai labu siam dan telur rebus.",
     image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+      "https://rajominang.id/blog/uploads/images/202502/image_750x_67affb10ad04e.jpg",
   },
   {
     id: 4,
@@ -118,39 +118,7 @@ const sarapan = [
     price: "Rp 18.000",
     description: "Telur dadar tebal dengan potongan wortel dan daun bawang.",
     image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
-  },
-  {
-    id: 5,
-    title: "Pancake Madu",
-    price: "Rp 20.000",
-    description: "Pancake lembut dengan siraman madu murni dan mentega.",
-    image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
-  },
-  {
-    id: 6,
-    title: "Sandwich Gandum",
-    price: "Rp 22.000",
-    description: "Roti gandum isi telur, keju, dan selada segar.",
-    image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
-  },
-  {
-    id: 7,
-    title: "Nasi Kuning",
-    price: "Rp 15.000",
-    description: "Nasi kuning gurih dengan perkedel dan telur suwir.",
-    image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
-  },
-  {
-    id: 8,
-    title: "Bubur Kacang Ijo",
-    price: "Rp 10.000",
-    description: "Kacang hijau manis dengan santan kental hangat.",
-    image:
-      "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/3/1/FNM_070111-Fried-Chicken-026_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1382539796174.webp",
+      "https://asset.kompas.com/crops/7_16WjKjKSU0q-yfH_431_wZEz0=/0x0:1000x667/1200x800/data/photo/2024/04/27/662c5d6f930e9.jpg",
   },
 ];
 
@@ -161,7 +129,7 @@ const lunch = [
     price: "Rp 25.000",
     description: "Ayam goreng dengan sambal korek super pedas.",
     image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+      "https://www.primarasa.co.id/images/images/Resep%20Ayam%20Penyet.jpg",
   },
   {
     id: 2,
@@ -169,7 +137,7 @@ const lunch = [
     price: "Rp 20.000",
     description: "Soto ayam kuah kuning dengan taburan koya gurih.",
     image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+      "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/17043644/Praktis-dan-Simpel-Ini-Resep-Soto-Ayam-Lamongan-yang-Menggugah-Selera-.jpg.webp",
   },
   {
     id: 3,
@@ -177,7 +145,7 @@ const lunch = [
     price: "Rp 18.000",
     description: "Sayuran lengkap dengan saus kacang yang dihaluskan.",
     image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+      "https://asset.kompas.com/crops/tPVbCuffNjj7zC5TWENvHbUmrns=/0x0:4320x2880/1200x800/data/photo/2020/03/27/5e7d670354c30.jpg",
   },
   {
     id: 4,
@@ -185,39 +153,7 @@ const lunch = [
     price: "Rp 35.000",
     description: "Ikan nila bakar bumbu kecap pedas manis.",
     image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    id: 5,
-    title: "Nasi Padang Komplit",
-    price: "Rp 30.000",
-    description: "Nasi dengan rendang sapi, daun singkong, dan gulai.",
-    image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    id: 6,
-    title: "Mie Goreng Seafood",
-    price: "Rp 28.000",
-    description: "Mie goreng dengan udang, cumi, dan bakso ikan.",
-    image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    id: 7,
-    title: "Sate Kambing",
-    price: "Rp 45.000",
-    description: "Sate kambing muda dengan bumbu kecap dan irisan tomat.",
-    image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    id: 8,
-    title: "Rawon Daging",
-    price: "Rp 35.000",
-    description: "Sup daging hitam khas Jatim dengan tauge pendek.",
-    image:
-      "https://img.freepik.com/foto-gratis/piring-makanan-laut-dengan-udang-kerang-lobster-disajikan-dengan-lemon_140725-8798.jpg?semt=ais_hybrid&w=740&q=80",
+      "https://assets-cloudflare.segari-ops.id/recipes/ikan-nila-bakar-kecap-lsbcb08tM2lPT.jpg",
   },
 ];
 
@@ -228,7 +164,7 @@ const dinner = [
     price: "Rp 65.000",
     description: "Sop buntut sapi premium dengan sayuran segar.",
     image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+      "https://img.inews.co.id/media/600/files/networks/2024/01/29/cdc9d_nikmat.jpg",
   },
   {
     id: 2,
@@ -236,7 +172,7 @@ const dinner = [
     price: "Rp 40.000",
     description: "Dada ayam panggang dengan saus BBQ dan kentang.",
     image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4D101fXLavq7s0c_h80cqu8hx5nbFvtLElA&s",
   },
   {
     id: 3,
@@ -244,7 +180,7 @@ const dinner = [
     price: "Rp 25.000",
     description: "Nasi goreng dengan telur mata sapi dan ayam goreng.",
     image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+      "https://assets-cloudflare.segari-ops.id/recipes/nasi-goreng-spesial-lsba6q6vG9kuF.jpg",
   },
   {
     id: 4,
@@ -252,43 +188,18 @@ const dinner = [
     price: "Rp 22.000",
     description: "Tumisan berbagai macam sayuran dengan kuah kental.",
     image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
-  },
-  {
-    id: 5,
-    title: "Sate Taichan",
-    price: "Rp 25.000",
-    description: "Sate ayam putih polos dengan sambal pedas jeruk nipis.",
-    image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
-  },
-  {
-    id: 6,
-    title: "Fettuccine Carbonara",
-    price: "Rp 45.000",
-    description: "Pasta krim lembut dengan topping smoked beef.",
-    image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
-  },
-  {
-    id: 7,
-    title: "Bakmi Godog Jawa",
-    price: "Rp 20.000",
-    description: "Bakmi rebus khas Jawa dengan campuran telur bebek.",
-    image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
-  },
-  {
-    id: 8,
-    title: "Gurame Asam Manis",
-    price: "Rp 55.000",
-    description: "Ikan gurame fillet goreng tepung dengan saus nanas.",
-    image:
-      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+      "https://images.tokopedia.net/img/JFrBQq/2022/8/26/de2ac563-038d-4434-8287-711e891f3b54.jpg",
   },
 ];
 
 function PageMain() {
+  // fungsi navbar mobile
+  const [open, setOpen] = useState(false);
+  const btnBurger = () => {
+    setOpen(!open);
+  };
+
+  //fungsi category filter
   const [category, setCategory] = useState("sarapan");
   const ALL_MENUS = {
     sarapan: sarapan,
@@ -296,6 +207,7 @@ function PageMain() {
     dinner: dinner,
   };
   const currentMenu = ALL_MENUS[category] || [];
+
   // whatsapp message menu
   const handleWa = (food) => {
     const phoneNumber = "6285645837298";
@@ -312,10 +224,63 @@ function PageMain() {
     window.open(waUrl, "_blank");
   };
 
+  const handlePesanSekarang = () => {
+    const nomorHp = "6285645837298";
+
+    const pesan = encodeURIComponent(
+      "Halo Admin Restoran! 👋\n\n" +
+        "Saya sedang melihat menu di website dan ingin bertanya mengenai pemesanan. " +
+        "Kira-kira menu rekomendasi hari ini apa ya? Terima kasih!",
+    );
+
+    const waURL = `https://wa.me/${nomorHp}?text=${pesan}`;
+
+    window.open(waURL, "_blank");
+  };
+
+  // State untuk menampung data form
+  const [formData, setFormData] = useState({
+    nama: "",
+    email: "",
+    subjek: "",
+    pesan: "",
+  });
+
+  // Fungsi untuk menangani perubahan input
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Mencegah reload halaman
+
+    const nomorHp = "6285645837298"; // Ganti dengan nomor WA tujuan
+
+    // Menyusun format pesan
+    const text =
+      `*Pesan Baru dari Website!* 📩\n\n` +
+      `*Nama:* ${formData.nama}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Subjek:* ${formData.subjek}\n\n` +
+      `*Isi Pesan:*\n${formData.pesan}`;
+
+    const whatsappUrl = `https://wa.me/${nomorHp}?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <main>
       <section className="relative min-h-screen bg-slate-900 overflow-hidden">
-        <NavbarMain />
+        <NavbarMain
+          open={open}
+          setOpen={setOpen}
+          handlePesanSekarang={handlePesanSekarang}
+          btnBurger={btnBurger}
+        />
 
         <div className="py-16">
           <div className="absolute inset-0 z-0">
@@ -347,12 +312,12 @@ function PageMain() {
                     >
                       Lihat Menu
                     </a>
-                    <a
-                      href="#"
+                    <button
+                      onClick={handlePesanSekarang}
                       className="inline-block rounded-lg border-2 border-yellow-500 px-6 py-3 font-semibold text-yellow-500 transition-all easex hover:bg-yellow-500 hover:text-red-900 active:scale-95"
                     >
                       Pesan Sekarang
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -362,7 +327,7 @@ function PageMain() {
                   <div className="absolute -inset-4 rounded-full"></div>
 
                   <img
-                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/ac/fb/9e/ha-noi-s-traditional.jpg"
+                    src="https://www.goldendragonhouseware.com/timthumb.php?src=files/recipe/CDBSp-6-tips-dan-variasi-cara-menghidangkan-makanan-ala-restoran-mewah.jpg&w=&h=470&zc=1"
                     alt="Menu Makanan"
                     className="animation-rotate relative h-64 aspect-square rounded-full border-8 border-white object-cover sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
                   />
@@ -385,28 +350,28 @@ function PageMain() {
                 <img
                   src="https://themewagon.github.io/restoran/img/about-1.jpg"
                   alt=""
-                  className="rounded w-full"
+                  className="rounded w-full transition-all ease duration-300 hover:scale-98"
                 />
               </div>
               <div className="relative text-left mt-[25%]">
                 <img
                   src="https://themewagon.github.io/restoran/img/about-2.jpg"
                   alt=""
-                  className="absolute bottom-0 left-0 rounded w-3/4"
+                  className="absolute bottom-0 left-0 rounded w-3/4 transition-all ease duration-300 hover:scale-98"
                 />
               </div>
               <div className="relative">
                 <img
                   src="https://themewagon.github.io/restoran/img/about-3.jpg"
                   alt=""
-                  className="absolute top-0 right-0 rounded w-3/4"
+                  className="absolute top-0 right-0 rounded w-3/4 transition-all ease duration-300 hover:scale-98"
                 />
               </div>
               <div className="text-right">
                 <img
                   src="https://themewagon.github.io/restoran/img/about-4.jpg"
                   alt=""
-                  className="rounded w-full"
+                  className="rounded w-full transition-all ease duration-300 hover:scale-98"
                 />
               </div>
             </div>
@@ -515,16 +480,17 @@ function PageMain() {
             {currentMenu.map((food) => (
               <div
                 key={food.id}
-                className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer"
+                className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer overflow-hidden"
               >
-                <div className="w-full h-48">
+                <div className="w-full h-48 overflow-hidden">
                   <img
                     src={food.image}
                     alt={food.title}
-                    className="h-full w-full object-cover rounded-t-md"
+                    loading="lazy"
+                    className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="p-4 flex flex-col h-full">
+                <div className="p-4 flex flex-col h-48">
                   <h2 className="font-bold text-xl mb-2">{food.title}</h2>
                   <p className="text-gray-700 mb-4 flex-grow">
                     {food.description}
@@ -559,30 +525,50 @@ function PageMain() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     type="text"
+                    name="nama" // Tambahkan name
+                    value={formData.nama} // Bind value
+                    onChange={handleChange} // Tambahkan handler
                     placeholder="Nama Anda"
+                    required
                     className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Email Anda"
+                    required
                     className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
                 <input
                   type="text"
+                  name="subjek"
+                  value={formData.subjek}
+                  onChange={handleChange}
                   placeholder="Subjek"
+                  required
                   className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
                 <textarea
+                  name="pesan"
+                  value={formData.pesan}
+                  onChange={handleChange}
                   rows="4"
                   placeholder="Pesan Anda"
+                  required
                   className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                 ></textarea>
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition-all active:scale-95">
+
+                <button
+                  type="submit"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white cursor-pointer font-bold py-3 rounded-lg transition-all active:scale-95"
+                >
                   Kirim Pesan
                 </button>
               </form>
