@@ -1,27 +1,92 @@
-import React, { useState } from "react";
-import { User, Coffee, Hamburger, Utensils } from "lucide-react";
+import { useState } from "react";
+import NavbarMain from "../components/NavbarMain";
+import {
+  User,
+  Coffee,
+  Hamburger,
+  Utensils,
+  Truck,
+  Clock,
+  ShieldCheck,
+  Award,
+  Heart,
+} from "lucide-react";
 
+// kategori menu
 const categories = [
   {
     id: "sarapan",
-    side_label: "Pupolar",
+    side_label: "Populer",
     label: "Sarapan",
     icon: <Coffee size={38} />,
   },
   {
-    id: "launch",
-    side_label: "Special",
-    label: "Launch",
+    id: "lunch",
+    side_label: "Spesial",
+    label: "lunch",
     icon: <Hamburger size={38} />,
   },
   {
     id: "dinner",
-    side_label: "Lovely",
+    side_label: "Menarik",
     label: "Dinner",
     icon: <Utensils size={38} />,
   },
 ];
 
+// data layanan
+const services = [
+  {
+    id: 1,
+    title: "Master Chefs",
+    icon: <User size={60} />,
+    desc: "Koki berpengalaman yang ahli dalam meracik bumbu autentik khas nusantara.",
+  },
+  {
+    id: 2,
+    title: "Bahan Segar",
+    icon: <Heart size={60} />,
+    desc: "Kami hanya menggunakan bahan baku yang dipasok langsung dari petani lokal setiap pagi.",
+  },
+  {
+    id: 3,
+    title: "Pengiriman Cepat",
+    icon: <Truck size={60} />,
+    desc: "Layanan delivery yang menjamin makanan sampai ke tangan Anda dalam kondisi tetap hangat.",
+  },
+  {
+    id: 4,
+    title: "Halal & Higienis",
+    icon: <ShieldCheck size={60} />,
+    desc: "Standar kebersihan dapur yang ketat dan jaminan 100% bahan makanan halal.",
+  },
+  {
+    id: 5,
+    title: "Pelayanan 24/7",
+    icon: <Clock size={60} />,
+    desc: "Siap melayani pesanan Anda kapan saja dengan sistem booking yang sangat mudah.",
+  },
+  {
+    id: 6,
+    title: "Rasa Berkualitas",
+    icon: <Award size={60} />,
+    desc: "Resep turun temurun yang telah memenangkan berbagai penghargaan kuliner lokal.",
+  },
+  {
+    id: 7,
+    title: "Kopi Premium",
+    icon: <Coffee size={60} />,
+    desc: "Pilihan biji kopi terbaik untuk menemani waktu santai atau meeting kerja Anda.",
+  },
+  {
+    id: 8,
+    title: "Alat Makan Steril",
+    icon: <Utensils size={60} />,
+    desc: "Semua peralatan makan diproses melalui sterilisasi suhu tinggi sebelum digunakan.",
+  },
+];
+
+// data menu
 const sarapan = [
   {
     id: 1,
@@ -89,7 +154,7 @@ const sarapan = [
   },
 ];
 
-const launch = [
+const lunch = [
   {
     id: 1,
     title: "Ayam Goreng Penyet",
@@ -162,99 +227,80 @@ const dinner = [
     title: "Sop Buntut",
     price: "Rp 65.000",
     description: "Sop buntut sapi premium dengan sayuran segar.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
   {
     id: 2,
     title: "Steak Ayam BBQ",
     price: "Rp 40.000",
     description: "Dada ayam panggang dengan saus BBQ dan kentang.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
   {
     id: 3,
     title: "Nasi Goreng Spesial",
     price: "Rp 25.000",
     description: "Nasi goreng dengan telur mata sapi dan ayam goreng.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
   {
     id: 4,
     title: "Capcay Kuah",
     price: "Rp 22.000",
     description: "Tumisan berbagai macam sayuran dengan kuah kental.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
   {
     id: 5,
     title: "Sate Taichan",
     price: "Rp 25.000",
     description: "Sate ayam putih polos dengan sambal pedas jeruk nipis.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
   {
     id: 6,
     title: "Fettuccine Carbonara",
     price: "Rp 45.000",
     description: "Pasta krim lembut dengan topping smoked beef.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
   {
     id: 7,
     title: "Bakmi Godog Jawa",
     price: "Rp 20.000",
     description: "Bakmi rebus khas Jawa dengan campuran telur bebek.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
   {
     id: 8,
     title: "Gurame Asam Manis",
     price: "Rp 55.000",
     description: "Ikan gurame fillet goreng tepung dengan saus nanas.",
-    image: "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
+    image:
+      "https://shelfcooking.com/wp-content/uploads/2019/08/dinner-ideas.png",
   },
 ];
 
 function PageMain() {
   const [category, setCategory] = useState("sarapan");
-  const MENU_DATA = {
+  const ALL_MENUS = {
     sarapan: sarapan,
-    launch: launch,
+    lunch: lunch,
     dinner: dinner,
   };
-  const currentMenu = MENU_DATA[category];
+  const currentMenu = ALL_MENUS[category] || [];
 
   return (
-    <>
+    <main>
       <section className="relative min-h-screen bg-slate-900 overflow-hidden">
-        <header className="relative z-100 flex justify-between items-center px-6 py-4">
-          <div className="flex items-center text-yellow-500 font-bold">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              fill="currentColor"
-              class="bi bi-fork-knife"
-              viewBox="0 0 16 16"
-            >
-              <path d="M13 .5c0-.276-.226-.506-.498-.465-1.703.257-2.94 2.012-3 8.462a.5.5 0 0 0 .498.5c.56.01 1 .13 1 1.003v5.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5zM4.25 0a.25.25 0 0 1 .25.25v5.122a.128.128 0 0 0 .256.006l.233-5.14A.25.25 0 0 1 5.24 0h.522a.25.25 0 0 1 .25.238l.233 5.14a.128.128 0 0 0 .256-.006V.25A.25.25 0 0 1 6.75 0h.29a.5.5 0 0 1 .498.458l.423 5.07a1.69 1.69 0 0 1-1.059 1.711l-.053.022a.92.92 0 0 0-.58.884L6.47 15a.971.971 0 1 1-1.942 0l.202-6.855a.92.92 0 0 0-.58-.884l-.053-.022a1.69 1.69 0 0 1-1.059-1.712L3.462.458A.5.5 0 0 1 3.96 0z" />
-            </svg>
-            <h1 className="text-2xl">Restoran</h1>
-          </div>
-          <nav className="hidden md:flex items-center space-x-5 text-white font-medium uppercase">
-            <a href="#" className="text-yellow-500">
-              Beranda
-            </a>
-            <a href="#about">Tentang</a>
-            <a href="#service">Jasa</a>
-            <a href="#menu">Menu</a>
-            <a href="#contact">Kontak</a>
-            <button className="px-4 py-2 bg-yellow-500 text-white rounded-md ">
-              Pesan Sekarang
-            </button>
-          </nav>
-          <div className="block md:hidden text-2xl text-white">☰</div>
-        </header>
+        <NavbarMain />
 
         <div className="py-16">
           <div className="absolute inset-0 z-0">
@@ -312,12 +358,12 @@ function PageMain() {
         </div>
       </section>
 
-      <section id="about" className="container mx-auto py-8 px-4">
+      <section id="about" className="py-12">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
           Tentang Kami
         </h2>
 
-        <div className="container mx-auto px-2 flex flex-col lg:flex-row items-center gap-12">
+        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 w-full">
             <div className="grid grid-cols-2 gap-3">
               <div className="text-left">
@@ -408,117 +454,22 @@ function PageMain() {
 
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid gird-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
-
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
-
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
-
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
-
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
-
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
-
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
-
-            <div className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease">
-              <User
-                className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease"
-                size={60}
-              />
-              <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                Master Chefs
-              </h2>
-              <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                amet diam
-              </p>
-            </div>
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease"
+              >
+                <div className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease">
+                  {service.icon}
+                </div>
+                <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
+                  {service.title}
+                </h2>
+                <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                  {service.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -564,7 +515,7 @@ function PageMain() {
                     {item.description}
                   </p>
                   <div className="flex items-center justify-between mt-auto">
-                    <button className="py-2 px-6 bg-orange-500 rounded-md text-white">
+                    <button className="py-2 px-6 bg-orange-500 rounded-md text-white cursor-pointer">
                       Pesan
                     </button>
                     <p className="text-gray-700 italic">{item.price}</p>
@@ -575,7 +526,92 @@ function PageMain() {
           </div>
         </div>
       </section>
-    </>
+
+      <section id="contact" className="bg-gray-100 py-12">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="text-center mb-12">
+            <h3 className="text-xl md:text-2xl text-yellow-600 italic">
+              Kontak Kami
+            </h3>
+            <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900">
+              Ada Pertanyaan?{" "}
+              <span className="text-orange-500">Hubungi Kami</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Nama Anda"
+                    className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email Anda"
+                    className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Subjek"
+                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+                <textarea
+                  rows="4"
+                  placeholder="Pesan Anda"
+                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                ></textarea>
+                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition-all active:scale-95">
+                  Kirim Pesan
+                </button>
+              </form>
+            </div>
+
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-orange-100 p-3 rounded-full text-orange-600">
+                    <Coffee size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-700 uppercase font-bold">
+                      Booking
+                    </p>
+                    <p className="text-gray-900 font-medium">
+                      restaurant112@gmail.com
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="bg-orange-100 p-3 rounded-full text-orange-600">
+                    <User size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-700 uppercase font-bold">
+                      WhatsApp
+                    </p>
+                    <p className="text-gray-900 font-medium">
+                      +62 852-4459-8210
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full h-64 bg-gray-300 rounded-2xl overflow-hidden transition-all duration-500">
+                <iframe className="h-full w-full"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.496082055429!2d114.15515417413027!3d-8.352760584158618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd154d9bec38cf9%3A0x8c62fbc05274d015!2sSMK%20Muhammadiyah%201%20Genteng!5e0!3m2!1sid!2sid!4v1775723763470!5m2!1sid!2sid"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
 
