@@ -15,20 +15,20 @@ import {
 // kategori menu
 const categories = [
   {
-    id: "sarapan",
-    side_label: "Populer",
-    label: "Sarapan",
+    id: "coffee",
+    side_label: "Popular",
+    label: "Coffee",
     icon: <Coffee size={38} />,
   },
   {
-    id: "lunch",
-    side_label: "Spesial",
-    label: "lunch",
+    id: "food",
+    side_label: "Special",
+    label: "food",
     icon: <Hamburger size={38} />,
   },
   {
     id: "dinner",
-    side_label: "Menarik",
+    side_label: "Choose",
     label: "Dinner",
     icon: <Utensils size={38} />,
   },
@@ -87,42 +87,46 @@ const services = [
 ];
 
 // data menu
-const sarapan = [
+const coffee = [
   {
     id: 1,
-    title: "Nasi Uduk Betawi",
-    price: "Rp 15.000",
-    description: "Nasi uduk harum dengan bihun, tempe orek, dan sambal.",
+    title: "Es Kopi Susu Gula Aren",
+    price: "Rp 22.000",
+    description:
+      "Espresso house blend dengan susu segar dan manisnya gula aren murni.",
     image:
-      "https://www.dapurkintamani.com/wp-content/uploads/2021/08/nasi-uduk.webp",
+      "https://k1r76.upcloudobjects.com/live/images/img-news/1640397625_61c67b39d1f57.jpg",
   },
   {
     id: 2,
-    title: "Bubur Ayam Kaldu",
-    price: "Rp 12.000",
-    description: "Bubur lembut dengan cakwe, ayam suwir, dan kerupuk.",
+    title: "Cappuccino Hot",
+    price: "Rp 28.000",
+    description:
+      "Keseimbangan sempurna antara espresso, steamed milk, dan foam tebal.",
     image:
-      "https://storage.googleapis.com/bakingworld-web-production/uploads/media/content/55f3a24a3d718dc0385316c4d5cd0e4d_resize_w1000-1686042924329.jpg",
+      "https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1000&auto=format&fit=crop",
   },
   {
     id: 3,
-    title: "Lontong Sayur",
-    price: "Rp 15.000",
-    description: "Lontong dengan kuah gulai labu siam dan telur rebus.",
+    title: "Caramel Macchiato",
+    price: "Rp 35.000",
+    description:
+      "Sentuhan manis sirup karamel dengan lapisan susu lembut dan espresso.",
     image:
-      "https://rajominang.id/blog/uploads/images/202502/image_750x_67affb10ad04e.jpg",
+      "https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=1000&auto=format&fit=crop",
   },
   {
     id: 4,
-    title: "Omelet Sayur",
-    price: "Rp 18.000",
-    description: "Telur dadar tebal dengan potongan wortel dan daun bawang.",
+    title: "V64 Manual Brew",
+    price: "Rp 30.000",
+    description:
+      "Kopi filter dengan biji single origin pilihan untuk rasa yang lebih clean.",
     image:
-      "https://asset.kompas.com/crops/7_16WjKjKSU0q-yfH_431_wZEz0=/0x0:1000x667/1200x800/data/photo/2024/04/27/662c5d6f930e9.jpg",
+      "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01gg44jvc21rbxpwcx0rnak0t5.jpg",
   },
 ];
 
-const lunch = [
+const food = [
   {
     id: 1,
     title: "Ayam Goreng Penyet",
@@ -200,10 +204,10 @@ function PageMain() {
   };
 
   //fungsi category filter
-  const [category, setCategory] = useState("sarapan");
+  const [category, setCategory] = useState("coffee");
   const ALL_MENUS = {
-    sarapan: sarapan,
-    lunch: lunch,
+    coffee: coffee,
+    food: food,
     dinner: dinner,
   };
   const currentMenu = ALL_MENUS[category] || [];
@@ -238,7 +242,7 @@ function PageMain() {
     window.open(waURL, "_blank");
   };
 
-  // State untuk menampung data form
+  // state data form
   const [formData, setFormData] = useState({
     nama: "",
     email: "",
@@ -246,7 +250,6 @@ function PageMain() {
     pesan: "",
   });
 
-  // Fungsi untuk menangani perubahan input
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -255,11 +258,11 @@ function PageMain() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Mencegah reload halaman
+    e.preventDefault();
 
-    const nomorHp = "6285645837298"; // Ganti dengan nomor WA tujuan
+    const nomorHp = "6285645837298";
 
-    // Menyusun format pesan
+    // format pesan rapi
     const text =
       `*Pesan Baru dari Website!* 📩\n\n` +
       `*Nama:* ${formData.nama}\n` +
@@ -314,7 +317,7 @@ function PageMain() {
                     </a>
                     <button
                       onClick={handlePesanSekarang}
-                      className="inline-block rounded-lg border-2 border-orange-500 px-6 py-3 font-semibold text-orange-500 transition-all easex hover:bg-orange-500 hover:text-red-900 active:scale-95"
+                      className="inline-block rounded-lg border-2 border-orange-500 px-6 py-3 font-semibold cursor-pointer text-orange-500 transition-all easex hover:bg-orange-500 hover:text-white active:scale-95"
                     >
                       Pesan Sekarang
                     </button>
@@ -383,23 +386,26 @@ function PageMain() {
             </h3>
             <h2 className="text-4xl font-bold mb-6">
               Selamat Datang di{" "}
-              <span className="text-orange-600">RESTARURANT</span>
+              <span className="text-orange-600 uppercase">keyfood</span>
             </h2>
 
             <p className="text-gray-500 mb-6 max-w-lg">
-              Di <span className="font-bold text-orange-600">RESTAURANT</span>, kami
-              percaya bahwa makanan bukan sekadar pengisi perut, melainkan
-              sebuah cerita. Berawal dari kecintaan kami pada bahan lokal
-              pilihan dan rempah autentik, kami menghadirkan simfoni rasa yang
-              memanjakan lidah.
+              Di{" "}
+              <span className="font-bold text-orange-600">KeyFood Genteng</span>
+              , kami percaya bahwa makan bukan sekadar pelepas lapar, melainkan
+              sebuah perayaan kebersamaan. Berawal dari keinginan kami untuk
+              menyatukan beragam cita rasa terbaik dalam satu atap, kami
+              menghadirkan simfoni kuliner—mulai dari jajanan lokal yang
+              autentik hingga kreasi kekinian yang memanjakan lidah.
             </p>
 
             <p className="text-gray-500 mb-6 max-w-lg">
-              Setiap piring yang kami sajikan adalah hasil kurasi penuh
-              ketelitian—memadukan tradisi kuliner dengan sentuhan modern. Kami
-              mengundang Anda untuk duduk sejenak, melepas lelah, dan merayakan
-              momen berharga bersama orang tercinta dalam kehangatan suasana
-              kami.
+              Setiap sudut dan hidangan yang tersedia adalah hasil kurasi untuk
+              menjawab keragaman selera Anda—memadukan kemeriahan pusat kuliner
+              dengan kenyamanan yang hangat. Kami mengundang Anda untuk mampir
+              sejenak, melepas lelah setelah beraktivitas, dan menciptakan momen
+              berharga bersama teman maupun keluarga dalam suasana yang penuh
+              keakraban.
             </p>
 
             <div className="flex flex-col md:flex-row items-start space-y-4 md:space-x-4">
@@ -409,7 +415,7 @@ function PageMain() {
                 </h2>
                 <div>
                   <p className="text-gray-500">Tahun</p>
-                  <p className="uppercase font-semibold">Pengalaman</p>
+                  <p className="uppercase font-semibold">BERDIRI</p>
                 </div>
               </div>
 
@@ -585,7 +591,7 @@ function PageMain() {
                       Booking
                     </p>
                     <p className="text-gray-900 font-medium">
-                      restaurant112@gmail.com
+                      keyfoodgtg@gmail.com
                     </p>
                   </div>
                 </div>
@@ -598,7 +604,7 @@ function PageMain() {
                       WhatsApp
                     </p>
                     <p className="text-gray-900 font-medium">
-                      +62 852-4459-8210
+                      +62 856-4583-7298
                     </p>
                   </div>
                 </div>
@@ -607,7 +613,7 @@ function PageMain() {
               <div className="w-full h-64 bg-gray-300 rounded-2xl overflow-hidden transition-all duration-500">
                 <iframe
                   className="h-full w-full"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.496082055429!2d114.15515417413027!3d-8.352760584158618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd154d9bec38cf9%3A0x8c62fbc05274d015!2sSMK%20Muhammadiyah%201%20Genteng!5e0!3m2!1sid!2sid!4v1775723763470!5m2!1sid!2sid"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4400749336614!2d114.14326577413034!3d-8.35829538422854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd155636c195abd%3A0x5ac2ca8c3123396e!2sKEYFOOD%20GENTENG!5e0!3m2!1sid!2sid!4v1775831773920!5m2!1sid!2sid"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>

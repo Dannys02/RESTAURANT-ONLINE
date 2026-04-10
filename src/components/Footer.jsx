@@ -11,8 +11,8 @@ function Footer() {
               <h1 className="text-2xl tracking-wider uppercase">Restoran</h1>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Menyajikan kebahagiaan di setiap piring sejak 2009. Bahan segar,
-              resep rahasia, dan pelayanan sepenuh hati.
+              Setiap sudut dan hidangan yang tersedia adalah hasil kurasi untuk
+              menjawab keragaman selera Anda.
             </p>
             <div className="flex space-x-4 pt-2">
               {["FB", "IG", "TW", "YT"].map((social) => (
@@ -117,10 +117,10 @@ function Footer() {
                     />
                   </svg>
                 </div>
-                <p>Jl. KH Imam Bahri No.10, Jawa Timur, Indonesia</p>
+                <p>Jl. KH. Wahid Hasyim No.89, Jawa Timur, Indonesia</p>
               </div>
               <a
-                href="https://maps.app.goo.gl/N26JHsQbBHwLKL7B6"
+                href="https://maps.app.goo.gl/J7SrKNZ6Y9zidMjc9"
                 target="_blank"
                 className="inline-block mt-2 bg-slate-800 hover:bg-slate-700 text-orange-500 px-4 py-2 rounded-lg text-sm font-semibold transition-all border border-orange-500/30"
               >
