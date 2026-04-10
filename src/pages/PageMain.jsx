@@ -274,7 +274,7 @@ function PageMain() {
 
   return (
     <main>
-      <section className="relative min-h-screen bg-slate-900 overflow-hidden">
+      <section className="relative bg-slate-900 overflow-hidden">
         <NavbarMain
           open={open}
           setOpen={setOpen}
@@ -291,10 +291,10 @@ function PageMain() {
             />
           </div>
 
-          <div className="container mx-auto px-2 relative z-10">
-            <div className="grid items-center gap-12 md:grid-cols-2">
+          <div className="container mx-auto flex justify-center items-center min-h-screen px-2 relative z-10">
+            <div className="grid items-center justify-center gap-12 md:grid-cols-2">
               <div className="order-2 md:order-1">
-                <div className="max-w-xl rounded-2xl p-8 md:p-12">
+                <div className="max-w-xl rounded-2xl p-8 md:p-0 lg:p-12">
                   <h2 className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-6xl">
                     Nikmati Cita Rasa{" "}
                     <span className="text-yellow-400">Terbaik</span> di Setiap
@@ -403,8 +403,8 @@ function PageMain() {
             </p>
 
             <div className="flex flex-col md:flex-row items-start space-y-4 md:space-x-4">
-              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-2">
-                <h2 className=" font-bold pb-2 text-5xl lg:text-6xl text-yellow-500">
+              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-4">
+                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-yellow-500">
                   15
                 </h2>
                 <div>
@@ -413,8 +413,8 @@ function PageMain() {
                 </div>
               </div>
 
-              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-2">
-                <h2 className=" font-bold pb-2 text-5xl lg:text-6xl text-yellow-500">
+              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-4">
+                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-yellow-500">
                   50
                 </h2>
                 <div>
@@ -432,7 +432,7 @@ function PageMain() {
           Jasa Yang Kami Sediakan
         </h2>
 
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="container mx-auto px-6 lg:px-12">
           <div className="grid gird-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {services.map((service) => (
               <div
@@ -475,7 +475,7 @@ function PageMain() {
           ))}
         </div>
 
-        <div className="container w-full mx-auto px-6 md:px-12">
+        <div className="container w-full mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-4 lg:gap-6">
             {currentMenu.map((food) => (
               <div
@@ -512,7 +512,7 @@ function PageMain() {
       </section>
 
       <section id="contact" className="bg-gray-100 py-12">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
             <h3 className="text-xl md:text-2xl text-yellow-600 italic">
               Kontak Kami
