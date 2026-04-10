@@ -2,7 +2,7 @@ function NavbarMain({ open, btnBurger, handlePesanSekarang }) {
 
   return (
     <header className="relative z-20 flex justify-between items-center px-6 py-4">
-      <div className="flex items-center text-yellow-500 font-bold">
+      <div className="flex items-center text-orange-500 font-bold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -16,7 +16,7 @@ function NavbarMain({ open, btnBurger, handlePesanSekarang }) {
         <h1 className="text-2xl">Restoran</h1>
       </div>
       <nav className="hidden md:flex items-center space-x-5 text-white font-medium uppercase">
-        <a href="#" className="text-yellow-500">
+        <a href="#" className="text-orange-500">
           Beranda
         </a>
         <a href="#about">Tentang</a>
@@ -25,7 +25,7 @@ function NavbarMain({ open, btnBurger, handlePesanSekarang }) {
         <a href="#contact">Kontak</a>
         <button
           onClick={handlePesanSekarang}
-          className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 transition-all easex text-red-900 cursor-pointer rounded-md "
+          className="px-4 py-2 bg-orange-500 hover:bg-orange-400 transition-all easex text-white cursor-pointer rounded-md "
         >
           Pesan Sekarang
         </button>
@@ -60,7 +60,7 @@ function NavbarMain({ open, btnBurger, handlePesanSekarang }) {
         </a>
         <button
           onClick={handlePesanSekarang}
-          className="px-6 py-3 bg-yellow-500 text-red-900 rounded-md"
+          className="px-6 py-3 bg-orange-500 text-red-900 rounded-md"
         >
           Pesan Sekarang
         </button>

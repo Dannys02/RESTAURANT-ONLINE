@@ -291,13 +291,13 @@ function PageMain() {
             />
           </div>
 
-          <div className="container mx-auto flex justify-center items-center min-h-screen px-2 relative z-10">
+          <div className="container mx-auto flex justify-center items-center min-h-screen lg:min-h-fit px-2 relative z-10">
             <div className="grid items-center justify-center gap-12 md:grid-cols-2">
               <div className="order-2 md:order-1">
                 <div className="max-w-xl rounded-2xl p-8 md:p-0 lg:p-12">
                   <h2 className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-6xl">
                     Nikmati Cita Rasa{" "}
-                    <span className="text-yellow-400">Terbaik</span> di Setiap
+                    <span className="text-orange-400">Terbaik</span> di Setiap
                     Gigitan
                   </h2>
                   <p className="mb-8 text-lg text-red-100">
@@ -308,13 +308,13 @@ function PageMain() {
                   <div className="flex items-center text-sm md:text-base gap-4">
                     <a
                       href="#menu"
-                      className="inline-block rounded-lg bg-yellow-500 px-6 py-3 font-semibold text-red-900 transition-all easex hover:bg-yellow-400 hover:shadow-lg active:scale-95"
+                      className="inline-block rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white transition-all easex hover:bg-orange-400 hover:shadow-lg active:scale-95"
                     >
                       Lihat Menu
                     </a>
                     <button
                       onClick={handlePesanSekarang}
-                      className="inline-block rounded-lg border-2 border-yellow-500 px-6 py-3 font-semibold text-yellow-500 transition-all easex hover:bg-yellow-500 hover:text-red-900 active:scale-95"
+                      className="inline-block rounded-lg border-2 border-orange-500 px-6 py-3 font-semibold text-orange-500 transition-all easex hover:bg-orange-500 hover:text-red-900 active:scale-95"
                     >
                       Pesan Sekarang
                     </button>
@@ -340,7 +340,7 @@ function PageMain() {
 
       <section id="about" className="py-12">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
-          Tentang Kami
+          Kehangatan di <span className="text-orange-600">Setiap Hidangan</span>
         </h2>
 
         <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
@@ -378,16 +378,16 @@ function PageMain() {
           </div>
 
           <div className="lg:w-1/2 w-full">
-            <h3 className="text-2xl text-yellow-600 italic mb-2">
+            <h3 className="text-2xl text-orange-600 italic mb-2">
               Tentang Kami
             </h3>
             <h2 className="text-4xl font-bold mb-6">
               Selamat Datang di{" "}
-              <span className="text-yellow-600">RESTARURANT</span>
+              <span className="text-orange-600">RESTARURANT</span>
             </h2>
 
             <p className="text-gray-500 mb-6 max-w-lg">
-              Di <span className="text-yellow-600">RESTAURANT</span>, kami
+              Di <span className="font-bold text-orange-600">RESTAURANT</span>, kami
               percaya bahwa makanan bukan sekadar pengisi perut, melainkan
               sebuah cerita. Berawal dari kecintaan kami pada bahan lokal
               pilihan dan rempah autentik, kami menghadirkan simfoni rasa yang
@@ -403,8 +403,8 @@ function PageMain() {
             </p>
 
             <div className="flex flex-col md:flex-row items-start space-y-4 md:space-x-4">
-              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-4">
-                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-yellow-500">
+              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
+                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500">
                   15
                 </h2>
                 <div>
@@ -413,8 +413,8 @@ function PageMain() {
                 </div>
               </div>
 
-              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-yellow-500 space-x-4">
-                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-yellow-500">
+              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
+                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500">
                   50
                 </h2>
                 <div>
@@ -429,7 +429,7 @@ function PageMain() {
 
       <section id="service" className="py-12 bg-gray-100">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
-          Jasa Yang Kami Sediakan
+          Jasa Yang <span className="text-orange-600">Kami Sediakan</span>
         </h2>
 
         <div className="container mx-auto px-6 lg:px-12">
@@ -439,7 +439,7 @@ function PageMain() {
                 key={service.id}
                 className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease"
               >
-                <div className="mb-4 text-yellow-500 group-hover:text-gray-50 transition-colors duration-300 ease">
+                <div className="mb-4 text-orange-500 group-hover:text-gray-50 transition-colors duration-300 ease">
                   {service.icon}
                 </div>
                 <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
@@ -456,7 +456,7 @@ function PageMain() {
 
       <section id="menu" className="py-12">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
-          Menu Kami
+          Pilihan Lezat <span className="text-orange-500">untuk Kamu</span>
         </h2>
 
         <div className="container w-fit mx-auto flex justify-center items-center mb-12 space-x-6 border-b-2 border-gray-200">
@@ -514,7 +514,7 @@ function PageMain() {
       <section id="contact" className="bg-gray-100 py-12">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h3 className="text-xl md:text-2xl text-yellow-600 italic">
+            <h3 className="text-xl md:text-2xl text-orange-600 italic">
               Kontak Kami
             </h3>
             <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900">
