@@ -60,7 +60,7 @@ function NavbarMain({ open, btnBurger, handlePesanSekarang }) {
         </a>
         <button
           onClick={handlePesanSekarang}
-          className="px-6 py-3 bg-orange-500 text-red-900 rounded-md"
+          className="px-6 py-3 bg-orange-500 text-white rounded-md"
         >
           Pesan Sekarang
         </button>

@@ -339,7 +339,7 @@ function PageMain() {
       </section>
 
       <section id="about" className="py-12">
-        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
+        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
           Kehangatan di <span className="text-orange-600">Setiap Hidangan</span>
         </h2>
 
@@ -428,7 +428,7 @@ function PageMain() {
       </section>
 
       <section id="service" className="py-12 bg-gray-100">
-        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
+        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
           Jasa Yang <span className="text-orange-600">Kami Sediakan</span>
         </h2>
 
@@ -455,7 +455,7 @@ function PageMain() {
       </section>
 
       <section id="menu" className="py-12">
-        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12">
+        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
           Pilihan Lezat <span className="text-orange-500">untuk Kamu</span>
         </h2>
 
