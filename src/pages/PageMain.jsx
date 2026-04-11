@@ -6,10 +6,12 @@ import {
   Hamburger,
   Utensils,
   Truck,
-  Clock,
+  Vegan,
   ShieldCheck,
   Award,
   Heart,
+  Star,
+  Quote,
 } from "lucide-react";
 
 // kategori menu
@@ -45,7 +47,7 @@ const services = [
   {
     id: 2,
     title: "Bahan Segar",
-    icon: <Heart size={60} />,
+    icon: <Vegan size={60} />,
     desc: "Kami hanya menggunakan bahan baku yang dipasok langsung dari petani lokal setiap pagi.",
   },
   {
@@ -62,9 +64,9 @@ const services = [
   },
   {
     id: 5,
-    title: "Pelayanan 24/7",
-    icon: <Clock size={60} />,
-    desc: "Siap melayani pesanan Anda kapan saja dengan sistem booking yang sangat mudah.",
+    title: "Suasana Nyaman",
+    icon: <Heart size={60} />,
+    desc: "Area luas dengan atmosfer hangat, dirancang khusus untuk momen santai Anda bersama orang tercinta.",
   },
   {
     id: 6,
@@ -193,6 +195,34 @@ const dinner = [
     description: "Tumisan berbagai macam sayuran dengan kuah kental.",
     image:
       "https://images.tokopedia.net/img/JFrBQq/2022/8/26/de2ac563-038d-4434-8287-711e891f3b54.jpg",
+  },
+];
+
+// data testimoni
+const testimonials = [
+  {
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Siska Amelia",
+    title: "Food Enthusiast",
+    content:
+      "Tempat favorit kalau lagi di Genteng! Es Kopi Susu Gula Aren-nya beneran nagih, manisnya pas dan kopinya berasa. Makanannya juga juara, Ayam Goreng Penyet-nya punya sambal yang nampol banget di lidah. Suasananya asyik buat nongkrong lama-lama.",
+    star: 5,
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Budi Santoso",
+    title: "Local Guide",
+    content:
+      "KeyFood emang nggak pernah gagal buat urusan makan malam bareng keluarga. Sop Buntut-nya premium banget, dagingnya empuk dan kuahnya segar. Pelayanannya cepat dan ramah meskipun kondisi lagi ramai. Definisi kenyang dan puas!",
+    star: 5,
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    name: "Dewi Pratama",
+    title: "Ibu Rumah Tangga",
+    content:
+      "Suka banget sama variasi menunya. Anak-anak suka Nasi Goreng Spesial-nya, sementara saya paling doyan Ikan Bakar Nila bumbu kecapnya yang meresap sampai ke dalam. Tempatnya bersih dan hangat, cocok banget buat ngerayain momen spesial.",
+    star: 4,
   },
 ];
 
@@ -389,7 +419,7 @@ function PageMain() {
               <span className="text-orange-600 uppercase">keyfood</span>
             </h2>
 
-            <p className="text-gray-500 mb-6 max-w-lg">
+            <p className="text-gray-600 mb-6 max-w-lg">
               Di{" "}
               <span className="font-bold text-orange-600">KeyFood Genteng</span>
               , kami percaya bahwa makan bukan sekadar pelepas lapar, melainkan
@@ -399,7 +429,7 @@ function PageMain() {
               autentik hingga kreasi kekinian yang memanjakan lidah.
             </p>
 
-            <p className="text-gray-500 mb-6 max-w-lg">
+            <p className="text-gray-600 mb-6 max-w-lg">
               Setiap sudut dan hidangan yang tersedia adalah hasil kurasi untuk
               menjawab keragaman selera Anda—memadukan kemeriahan pusat kuliner
               dengan kenyamanan yang hangat. Kami mengundang Anda untuk mampir
@@ -410,7 +440,7 @@ function PageMain() {
 
             <div className="flex flex-col md:flex-row items-start space-y-4 md:space-x-4">
               <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
-                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500">
+                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500 tracking-tighter">
                   15
                 </h2>
                 <div>
@@ -420,7 +450,7 @@ function PageMain() {
               </div>
 
               <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
-                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500">
+                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500 tracking-tighter">
                   50
                 </h2>
                 <div>
@@ -435,7 +465,7 @@ function PageMain() {
 
       <section id="service" className="py-12 bg-gray-100">
         <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
-          Jasa Yang <span className="text-orange-600">Kami Sediakan</span>
+          Layanan Yang <span className="text-orange-600">Kami Sediakan</span>
         </h2>
 
         <div className="container mx-auto px-6 lg:px-12">
@@ -486,7 +516,7 @@ function PageMain() {
             {currentMenu.map((food) => (
               <div
                 key={food.id}
-                className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer overflow-hidden"
+                className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer overflow-hidden transition-all duration-300 ease hover:shadow-xl hoover:shadow-gray-600"
               >
                 <div className="w-full h-48 overflow-hidden">
                   <img
@@ -517,7 +547,67 @@ function PageMain() {
         </div>
       </section>
 
-      <section id="contact" className="bg-gray-100 py-12">
+      <section className="bg-gray-100 py-12">
+        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
+          Apa Kata <span className="text-orange-500">Sobat Kuliner?</span>
+        </h2>
+
+        <div className="container w-full mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-6">
+            {testimonials.map((testimoni) => (
+              <div
+                key={testimoni.name}
+                className="group relative cursor-pointer rounded-3xl p-8 border border border-gray-200 shadow-sm shadow-gray-400 transition-all duration-300 ease hover:border-orange-500 hover:shadow-orange-400"
+              >
+                <Quote
+                  size={40}
+                  className="absolute -top-4 rotate-180 group-hover:text-orange-500 transition-all duration-300 ease"
+                />
+                <div className="flex items-center space-x-4 pt-4">
+                  <div className="h-14 lg:h-24 aspect-square rounded-full border-2 border-white shadow-sm shadow-gray-400 overflow-hidden">
+                    <img
+                      src={testimoni.image}
+                      className="h-full aspect sequare"
+                      alt={testimoni.name}
+                    />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold tracking-tighter">
+                      {testimoni.name}
+                    </h2>
+                    <h4 className="text-sm font-bold text-indigo-900 tracking-tighter uppercase">
+                      {testimoni.title}
+                    </h4>
+                  </div>
+                </div>
+                <div className="pt-5">
+                  <p className="italic text-lg">"{testimoni.content}"</p>
+
+                  <div className="flex items-center pt-5">
+                    {[...Array(5)].map((_, star) => {
+                      const starValue = star + 1;
+                      return (
+                        <Star
+                          key={star}
+                          size={21}
+                          fill={
+                            starValue <= testimoni.star ? "#FBBF24" : "none"
+                          }
+                          color={
+                            starValue <= testimoni.star ? "#FBBF24" : "#D1D5DB"
+                          }
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-12">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
             <h3 className="text-xl md:text-2xl text-orange-600 italic">
