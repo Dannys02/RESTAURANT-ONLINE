@@ -1,719 +1,750 @@
 import { useState } from "react";
 import NavbarMain from "../components/NavbarMain";
 import {
-  User,
-  Coffee,
-  Hamburger,
-  Utensils,
-  Truck,
-  Vegan,
-  ShieldCheck,
-  Award,
-  Heart,
-  Star,
-  Quote,
+    User,
+    Coffee,
+    Hamburger,
+    Utensils,
+    Truck,
+    Vegan,
+    ShieldCheck,
+    Award,
+    Heart,
+    Star,
+    Quote
 } from "lucide-react";
 
 // kategori menu
 const categories = [
-  {
-    id: "coffee",
-    side_label: "Popular",
-    label: "Coffee",
-    icon: <Coffee size={38} />,
-  },
-  {
-    id: "food",
-    side_label: "Special",
-    label: "food",
-    icon: <Hamburger size={38} />,
-  },
-  {
-    id: "dinner",
-    side_label: "Choose",
-    label: "Dinner",
-    icon: <Utensils size={38} />,
-  },
+    {
+        id: "coffee",
+        side_label: "Popular",
+        label: "Coffee",
+        icon: <Coffee size={38} />
+    },
+    {
+        id: "food",
+        side_label: "Special",
+        label: "food",
+        icon: <Hamburger size={38} />
+    },
+    {
+        id: "dinner",
+        side_label: "Choose",
+        label: "Dinner",
+        icon: <Utensils size={38} />
+    }
 ];
 
 // data layanan
 const services = [
-  {
-    id: 1,
-    title: "Master Chefs",
-    icon: <User size={60} />,
-    desc: "Koki berpengalaman yang ahli dalam meracik bumbu autentik khas nusantara.",
-  },
-  {
-    id: 2,
-    title: "Bahan Segar",
-    icon: <Vegan size={60} />,
-    desc: "Kami hanya menggunakan bahan baku yang dipasok langsung dari petani lokal setiap pagi.",
-  },
-  {
-    id: 3,
-    title: "Pengiriman Cepat",
-    icon: <Truck size={60} />,
-    desc: "Layanan delivery yang menjamin makanan sampai ke tangan Anda dalam kondisi tetap hangat.",
-  },
-  {
-    id: 4,
-    title: "Halal & Higienis",
-    icon: <ShieldCheck size={60} />,
-    desc: "Standar kebersihan dapur yang ketat dan jaminan 100% bahan makanan halal.",
-  },
-  {
-    id: 5,
-    title: "Suasana Nyaman",
-    icon: <Heart size={60} />,
-    desc: "Area luas dengan atmosfer hangat, dirancang khusus untuk momen santai Anda bersama orang tercinta.",
-  },
-  {
-    id: 6,
-    title: "Rasa Berkualitas",
-    icon: <Award size={60} />,
-    desc: "Resep turun temurun yang telah memenangkan berbagai penghargaan kuliner lokal.",
-  },
-  {
-    id: 7,
-    title: "Kopi Premium",
-    icon: <Coffee size={60} />,
-    desc: "Pilihan biji kopi terbaik untuk menemani waktu santai atau meeting kerja Anda.",
-  },
-  {
-    id: 8,
-    title: "Alat Makan Steril",
-    icon: <Utensils size={60} />,
-    desc: "Semua peralatan makan diproses melalui sterilisasi suhu tinggi sebelum digunakan.",
-  },
+    {
+        id: 1,
+        title: "Master Chefs",
+        icon: <User size={60} />,
+        desc: "Koki berpengalaman yang ahli dalam meracik bumbu autentik khas nusantara."
+    },
+    {
+        id: 2,
+        title: "Bahan Segar",
+        icon: <Vegan size={60} />,
+        desc: "Kami hanya menggunakan bahan baku yang dipasok langsung dari petani lokal setiap pagi."
+    },
+    {
+        id: 3,
+        title: "Pengiriman Cepat",
+        icon: <Truck size={60} />,
+        desc: "Layanan delivery yang menjamin makanan sampai ke tangan Anda dalam kondisi tetap hangat."
+    },
+    {
+        id: 4,
+        title: "Halal & Higienis",
+        icon: <ShieldCheck size={60} />,
+        desc: "Standar kebersihan dapur yang ketat dan jaminan 100% bahan makanan halal."
+    },
+    {
+        id: 5,
+        title: "Suasana Nyaman",
+        icon: <Heart size={60} />,
+        desc: "Area luas dengan atmosfer hangat, dirancang khusus untuk momen santai Anda bersama orang tercinta."
+    },
+    {
+        id: 6,
+        title: "Rasa Berkualitas",
+        icon: <Award size={60} />,
+        desc: "Resep turun temurun yang telah memenangkan berbagai penghargaan kuliner lokal."
+    },
+    {
+        id: 7,
+        title: "Kopi Premium",
+        icon: <Coffee size={60} />,
+        desc: "Pilihan biji kopi terbaik untuk menemani waktu santai atau meeting kerja Anda."
+    },
+    {
+        id: 8,
+        title: "Alat Makan Steril",
+        icon: <Utensils size={60} />,
+        desc: "Semua peralatan makan diproses melalui sterilisasi suhu tinggi sebelum digunakan."
+    }
 ];
 
 // data menu
 const coffee = [
-  {
-    id: 1,
-    title: "Es Kopi Susu Gula Aren",
-    price: "Rp 22.000",
-    description:
-      "Espresso house blend dengan susu segar dan manisnya gula aren murni.",
-    image:
-      "https://k1r76.upcloudobjects.com/live/images/img-news/1640397625_61c67b39d1f57.jpg",
-  },
-  {
-    id: 2,
-    title: "Cappuccino Hot",
-    price: "Rp 28.000",
-    description:
-      "Keseimbangan sempurna antara espresso, steamed milk, dan foam tebal.",
-    image:
-      "https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Caramel Macchiato",
-    price: "Rp 35.000",
-    description:
-      "Sentuhan manis sirup karamel dengan lapisan susu lembut dan espresso.",
-    image:
-      "https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "V64 Manual Brew",
-    price: "Rp 30.000",
-    description:
-      "Kopi filter dengan biji single origin pilihan untuk rasa yang lebih clean.",
-    image:
-      "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01gg44jvc21rbxpwcx0rnak0t5.jpg",
-  },
+    {
+        id: 1,
+        title: "Es Kopi Susu Gula Aren",
+        price: "Rp 22.000",
+        description:
+            "Espresso house blend dengan susu segar dan manisnya gula aren murni.",
+        image: "https://k1r76.upcloudobjects.com/live/images/img-news/1640397625_61c67b39d1f57.jpg"
+    },
+    {
+        id: 2,
+        title: "Cappuccino Hot",
+        price: "Rp 28.000",
+        description:
+            "Keseimbangan sempurna antara espresso, steamed milk, dan foam tebal.",
+        image: "https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 3,
+        title: "Caramel Macchiato",
+        price: "Rp 35.000",
+        description:
+            "Sentuhan manis sirup karamel dengan lapisan susu lembut dan espresso.",
+        image: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 4,
+        title: "V64 Manual Brew",
+        price: "Rp 30.000",
+        description:
+            "Kopi filter dengan biji single origin pilihan untuk rasa yang lebih clean.",
+        image: "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01gg44jvc21rbxpwcx0rnak0t5.jpg"
+    }
 ];
 
 const food = [
-  {
-    id: 1,
-    title: "Ayam Goreng Penyet",
-    price: "Rp 25.000",
-    description: "Ayam goreng dengan sambal korek super pedas.",
-    image:
-      "https://www.primarasa.co.id/images/images/Resep%20Ayam%20Penyet.jpg",
-  },
-  {
-    id: 2,
-    title: "Soto Ayam Lamongan",
-    price: "Rp 20.000",
-    description: "Soto ayam kuah kuning dengan taburan koya gurih.",
-    image:
-      "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/17043644/Praktis-dan-Simpel-Ini-Resep-Soto-Ayam-Lamongan-yang-Menggugah-Selera-.jpg.webp",
-  },
-  {
-    id: 3,
-    title: "Gado-Gado Siram",
-    price: "Rp 18.000",
-    description: "Sayuran lengkap dengan saus kacang yang dihaluskan.",
-    image:
-      "https://asset.kompas.com/crops/tPVbCuffNjj7zC5TWENvHbUmrns=/0x0:4320x2880/1200x800/data/photo/2020/03/27/5e7d670354c30.jpg",
-  },
-  {
-    id: 4,
-    title: "Ikan Bakar Nila",
-    price: "Rp 35.000",
-    description: "Ikan nila bakar bumbu kecap pedas manis.",
-    image:
-      "https://assets-cloudflare.segari-ops.id/recipes/ikan-nila-bakar-kecap-lsbcb08tM2lPT.jpg",
-  },
+    {
+        id: 1,
+        title: "Ayam Goreng Penyet",
+        price: "Rp 25.000",
+        description: "Ayam goreng dengan sambal korek super pedas.",
+        image: "https://www.primarasa.co.id/images/images/Resep%20Ayam%20Penyet.jpg"
+    },
+    {
+        id: 2,
+        title: "Soto Ayam Lamongan",
+        price: "Rp 20.000",
+        description: "Soto ayam kuah kuning dengan taburan koya gurih.",
+        image: "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/17043644/Praktis-dan-Simpel-Ini-Resep-Soto-Ayam-Lamongan-yang-Menggugah-Selera-.jpg.webp"
+    },
+    {
+        id: 3,
+        title: "Gado-Gado Siram",
+        price: "Rp 18.000",
+        description: "Sayuran lengkap dengan saus kacang yang dihaluskan.",
+        image: "https://asset.kompas.com/crops/tPVbCuffNjj7zC5TWENvHbUmrns=/0x0:4320x2880/1200x800/data/photo/2020/03/27/5e7d670354c30.jpg"
+    },
+    {
+        id: 4,
+        title: "Ikan Bakar Nila",
+        price: "Rp 35.000",
+        description: "Ikan nila bakar bumbu kecap pedas manis.",
+        image: "https://assets-cloudflare.segari-ops.id/recipes/ikan-nila-bakar-kecap-lsbcb08tM2lPT.jpg"
+    }
 ];
 
 const dinner = [
-  {
-    id: 1,
-    title: "Sop Buntut",
-    price: "Rp 65.000",
-    description: "Sop buntut sapi premium dengan sayuran segar.",
-    image:
-      "https://img.inews.co.id/media/600/files/networks/2024/01/29/cdc9d_nikmat.jpg",
-  },
-  {
-    id: 2,
-    title: "Steak Ayam BBQ",
-    price: "Rp 40.000",
-    description: "Dada ayam panggang dengan saus BBQ dan kentang.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4D101fXLavq7s0c_h80cqu8hx5nbFvtLElA&s",
-  },
-  {
-    id: 3,
-    title: "Nasi Goreng Spesial",
-    price: "Rp 25.000",
-    description: "Nasi goreng dengan telur mata sapi dan ayam goreng.",
-    image:
-      "https://assets-cloudflare.segari-ops.id/recipes/nasi-goreng-spesial-lsba6q6vG9kuF.jpg",
-  },
-  {
-    id: 4,
-    title: "Capcay Kuah",
-    price: "Rp 22.000",
-    description: "Tumisan berbagai macam sayuran dengan kuah kental.",
-    image:
-      "https://images.tokopedia.net/img/JFrBQq/2022/8/26/de2ac563-038d-4434-8287-711e891f3b54.jpg",
-  },
+    {
+        id: 1,
+        title: "Sop Buntut",
+        price: "Rp 65.000",
+        description: "Sop buntut sapi premium dengan sayuran segar.",
+        image: "https://img.inews.co.id/media/600/files/networks/2024/01/29/cdc9d_nikmat.jpg"
+    },
+    {
+        id: 2,
+        title: "Steak Ayam BBQ",
+        price: "Rp 40.000",
+        description: "Dada ayam panggang dengan saus BBQ dan kentang.",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4D101fXLavq7s0c_h80cqu8hx5nbFvtLElA&s"
+    },
+    {
+        id: 3,
+        title: "Nasi Goreng Spesial",
+        price: "Rp 25.000",
+        description: "Nasi goreng dengan telur mata sapi dan ayam goreng.",
+        image: "https://assets-cloudflare.segari-ops.id/recipes/nasi-goreng-spesial-lsba6q6vG9kuF.jpg"
+    },
+    {
+        id: 4,
+        title: "Capcay Kuah",
+        price: "Rp 22.000",
+        description: "Tumisan berbagai macam sayuran dengan kuah kental.",
+        image: "https://images.tokopedia.net/img/JFrBQq/2022/8/26/de2ac563-038d-4434-8287-711e891f3b54.jpg"
+    }
 ];
 
 // data testimoni
 const testimonials = [
-  {
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    name: "Siska Amelia",
-    title: "Food Enthusiast",
-    content:
-      "Tempat favorit kalau lagi di Genteng! Es Kopi Susu Gula Aren-nya beneran nagih, manisnya pas dan kopinya berasa. Makanannya juga juara, Ayam Goreng Penyet-nya punya sambal yang nampol banget di lidah. Suasananya asyik buat nongkrong lama-lama.",
-    star: 5,
-  },
-  {
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    name: "Budi Santoso",
-    title: "Local Guide",
-    content:
-      "KeyFood emang nggak pernah gagal buat urusan makan malam bareng keluarga. Sop Buntut-nya premium banget, dagingnya empuk dan kuahnya segar. Pelayanannya cepat dan ramah meskipun kondisi lagi ramai. Definisi kenyang dan puas!",
-    star: 5,
-  },
-  {
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
-    name: "Dewi Pratama",
-    title: "Ibu Rumah Tangga",
-    content:
-      "Suka banget sama variasi menunya. Anak-anak suka Nasi Goreng Spesial-nya, sementara saya paling doyan Ikan Bakar Nila bumbu kecapnya yang meresap sampai ke dalam. Tempatnya bersih dan hangat, cocok banget buat ngerayain momen spesial.",
-    star: 4,
-  },
+    {
+        image: "https://randomuser.me/api/portraits/women/44.jpg",
+        name: "Siska Amelia",
+        title: "Food Enthusiast",
+        content:
+            "Tempat favorit kalau lagi di Genteng! Es Kopi Susu Gula Aren-nya beneran nagih, manisnya pas dan kopinya berasa. Makanannya juga juara, Ayam Goreng Penyet-nya punya sambal yang nampol banget di lidah. Suasananya asyik buat nongkrong lama-lama.",
+        star: 5
+    },
+    {
+        image: "https://randomuser.me/api/portraits/men/32.jpg",
+        name: "Budi Santoso",
+        title: "Local Guide",
+        content:
+            "KeyFood emang nggak pernah gagal buat urusan makan malam bareng keluarga. Sop Buntut-nya premium banget, dagingnya empuk dan kuahnya segar. Pelayanannya cepat dan ramah meskipun kondisi lagi ramai. Definisi kenyang dan puas!",
+        star: 5
+    },
+    {
+        image: "https://randomuser.me/api/portraits/women/68.jpg",
+        name: "Dewi Pratama",
+        title: "Ibu Rumah Tangga",
+        content:
+            "Suka banget sama variasi menunya. Anak-anak suka Nasi Goreng Spesial-nya, sementara saya paling doyan Ikan Bakar Nila bumbu kecapnya yang meresap sampai ke dalam. Tempatnya bersih dan hangat, cocok banget buat ngerayain momen spesial.",
+        star: 4
+    }
 ];
 
 function PageMain() {
-  // fungsi navbar mobile
-  const [open, setOpen] = useState(false);
-  const btnBurger = () => {
-    setOpen(!open);
-  };
+    // fungsi navbar mobile
+    const [open, setOpen] = useState(false);
+    const btnBurger = () => {
+        setOpen(!open);
+    };
 
-  //fungsi category filter
-  const [category, setCategory] = useState("coffee");
-  const ALL_MENUS = {
-    coffee: coffee,
-    food: food,
-    dinner: dinner,
-  };
-  const currentMenu = ALL_MENUS[category] || [];
+    //fungsi category filter
+    const [category, setCategory] = useState("coffee");
+    const ALL_MENUS = {
+        coffee: coffee,
+        food: food,
+        dinner: dinner
+    };
+    const currentMenu = ALL_MENUS[category] || [];
 
-  // whatsapp message menu
-  const handleWa = (food) => {
-    const phoneNumber = "6285645837298";
+    // whatsapp message menu
+    const handleWa = food => {
+        const phoneNumber = "6285645837298";
 
-    const message =
-      `Halo, saya ingin memesan menu berikut:%0A%0A` +
-      `*Menu:* ${food.title}%0A` +
-      `*Harga:* ${food.price}%0A` +
-      `*Deskripsi:* ${food.description}%0A%0A` +
-      `Mohon segera diproses ya, terima kasih!`;
+        const message =
+            `Halo, saya ingin memesan menu berikut:%0A%0A` +
+            `*Menu:* ${food.title}%0A` +
+            `*Harga:* ${food.price}%0A` +
+            `*Deskripsi:* ${food.description}%0A%0A` +
+            `Mohon segera diproses ya, terima kasih!`;
 
-    const waUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        const waUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
-    window.open(waUrl, "_blank");
-  };
+        window.open(waUrl, "_blank");
+    };
 
-  const handlePesanSekarang = () => {
-    const nomorHp = "6285645837298";
+    const handlePesanSekarang = () => {
+        const nomorHp = "6285645837298";
 
-    const pesan = encodeURIComponent(
-      "Halo Admin Restoran! 👋\n\n" +
-        "Saya sedang melihat menu di website dan ingin bertanya mengenai pemesanan. " +
-        "Kira-kira menu rekomendasi hari ini apa ya? Terima kasih!",
-    );
+        const pesan = encodeURIComponent(
+            "Halo Admin Restoran! 👋\n\n" +
+                "Saya sedang melihat menu di website dan ingin bertanya mengenai pemesanan. " +
+                "Kira-kira menu rekomendasi hari ini apa ya? Terima kasih!"
+        );
 
-    const waURL = `https://wa.me/${nomorHp}?text=${pesan}`;
+        const waURL = `https://wa.me/${nomorHp}?text=${pesan}`;
 
-    window.open(waURL, "_blank");
-  };
+        window.open(waURL, "_blank");
+    };
 
-  // state data form
-  const [formData, setFormData] = useState({
-    nama: "",
-    email: "",
-    subjek: "",
-    pesan: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    // state data form
+    const [formData, setFormData] = useState({
+        nama: "",
+        email: "",
+        subjek: "",
+        pesan: ""
     });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleChange = e => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
 
-    const nomorHp = "6285645837298";
+    const handleSubmit = e => {
+        e.preventDefault();
 
-    // format pesan rapi
-    const text =
-      `*Pesan Baru dari Website!* 📩\n\n` +
-      `*Nama:* ${formData.nama}\n` +
-      `*Email:* ${formData.email}\n` +
-      `*Subjek:* ${formData.subjek}\n\n` +
-      `*Isi Pesan:*\n${formData.pesan}`;
+        const nomorHp = "6285645837298";
 
-    const whatsappUrl = `https://wa.me/${nomorHp}?text=${encodeURIComponent(text)}`;
+        // format pesan rapi
+        const text =
+            `*Pesan Baru dari Website!* 📩\n\n` +
+            `*Nama:* ${formData.nama}\n` +
+            `*Email:* ${formData.email}\n` +
+            `*Subjek:* ${formData.subjek}\n\n` +
+            `*Isi Pesan:*\n${formData.pesan}`;
 
-    window.open(whatsappUrl, "_blank");
-  };
+        const whatsappUrl = `https://wa.me/${nomorHp}?text=${encodeURIComponent(
+            text
+        )}`;
 
-  return (
-    <main>
-      <section className="relative bg-slate-900 overflow-hidden">
-        <NavbarMain
-          open={open}
-          setOpen={setOpen}
-          handlePesanSekarang={handlePesanSekarang}
-          btnBurger={btnBurger}
-        />
+        window.open(whatsappUrl, "_blank");
+    };
 
-        <div className="py-16">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="https://portablepartitions.com.au/wp-content/uploads/2022/06/hotel-restaurant-design.jpg"
-              className="h-full w-full object-cover opacity-5"
-              alt="background"
-            />
-          </div>
-
-          <div className="container mx-auto flex justify-center items-center min-h-screen lg:min-h-fit px-2 relative z-10">
-            <div className="grid items-center justify-center gap-12 md:grid-cols-2">
-              <div className="order-2 md:order-1">
-                <div className="max-w-xl rounded-2xl p-8 md:p-0 lg:p-12">
-                  <h2 className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-6xl">
-                    Nikmati Cita Rasa{" "}
-                    <span className="text-orange-400">Terbaik</span> di Setiap
-                    Gigitan
-                  </h2>
-                  <p className="mb-8 text-lg text-red-100">
-                    Hidangan dibuat dari bahan segar pilihan, disajikan dengan
-                    rasa autentik yang tak terlupakan oleh chef berpengalaman.
-                  </p>
-
-                  <div className="flex items-center text-sm md:text-base gap-4">
-                    <a
-                      href="#menu"
-                      className="inline-block rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white transition-all easex hover:bg-orange-400 hover:shadow-lg active:scale-95"
-                    >
-                      Lihat Menu
-                    </a>
-                    <button
-                      onClick={handlePesanSekarang}
-                      className="inline-block rounded-lg border-2 border-orange-500 px-6 py-3 font-semibold cursor-pointer text-orange-500 transition-all easex hover:bg-orange-500 hover:text-white active:scale-95"
-                    >
-                      Pesan Sekarang
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="order-1 flex justify-center md:order-2">
-                <div className="relative">
-                  <div className="absolute -inset-4 rounded-full"></div>
-
-                  <img
-                    src="https://www.goldendragonhouseware.com/timthumb.php?src=files/recipe/CDBSp-6-tips-dan-variasi-cara-menghidangkan-makanan-ala-restoran-mewah.jpg&w=&h=470&zc=1"
-                    alt="Menu Makanan"
-                    className="animation-rotate relative h-64 aspect-square rounded-full border-8 border-white object-cover sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="py-12">
-        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
-          Kehangatan di <span className="text-orange-600">Setiap Hidangan</span>
-        </h2>
-
-        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2 w-full">
-            <div className="grid grid-cols-2 gap-3">
-              <div className="text-left">
-                <img
-                  src="https://themewagon.github.io/restoran/img/about-1.jpg"
-                  alt=""
-                  className="rounded w-full transition-all ease duration-300 hover:scale-98"
+    return (
+        <main>
+            <section className="relative bg-slate-900 overflow-hidden">
+                <NavbarMain
+                    open={open}
+                    setOpen={setOpen}
+                    handlePesanSekarang={handlePesanSekarang}
+                    btnBurger={btnBurger}
                 />
-              </div>
-              <div className="relative text-left mt-[25%]">
-                <img
-                  src="https://themewagon.github.io/restoran/img/about-2.jpg"
-                  alt=""
-                  className="absolute bottom-0 left-0 rounded w-3/4 transition-all ease duration-300 hover:scale-98"
-                />
-              </div>
-              <div className="relative">
-                <img
-                  src="https://themewagon.github.io/restoran/img/about-3.jpg"
-                  alt=""
-                  className="absolute top-0 right-0 rounded w-3/4 transition-all ease duration-300 hover:scale-98"
-                />
-              </div>
-              <div className="text-right">
-                <img
-                  src="https://themewagon.github.io/restoran/img/about-4.jpg"
-                  alt=""
-                  className="rounded w-full transition-all ease duration-300 hover:scale-98"
-                />
-              </div>
-            </div>
-          </div>
 
-          <div className="lg:w-1/2 w-full">
-            <h3 className="text-2xl text-orange-600 italic mb-2">
-              Tentang Kami
-            </h3>
-            <h2 className="text-4xl font-bold mb-6">
-              Selamat Datang di{" "}
-              <span className="text-orange-600 uppercase">keyfood</span>
-            </h2>
-
-            <p className="text-gray-600 mb-6 max-w-lg">
-              Di{" "}
-              <span className="font-bold text-orange-600">KeyFood Genteng</span>
-              , kami percaya bahwa makan bukan sekadar pelepas lapar, melainkan
-              sebuah perayaan kebersamaan. Berawal dari keinginan kami untuk
-              menyatukan beragam cita rasa terbaik dalam satu atap, kami
-              menghadirkan simfoni kuliner—mulai dari jajanan lokal yang
-              autentik hingga kreasi kekinian yang memanjakan lidah.
-            </p>
-
-            <p className="text-gray-600 mb-6 max-w-lg">
-              Setiap sudut dan hidangan yang tersedia adalah hasil kurasi untuk
-              menjawab keragaman selera Anda—memadukan kemeriahan pusat kuliner
-              dengan kenyamanan yang hangat. Kami mengundang Anda untuk mampir
-              sejenak, melepas lelah setelah beraktivitas, dan menciptakan momen
-              berharga bersama teman maupun keluarga dalam suasana yang penuh
-              keakraban.
-            </p>
-
-            <div className="flex flex-col md:flex-row items-start space-y-4 md:space-x-4">
-              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
-                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500 tracking-tighter">
-                  15
-                </h2>
-                <div>
-                  <p className="text-gray-500">Tahun</p>
-                  <p className="uppercase font-semibold">BERDIRI</p>
-                </div>
-              </div>
-
-              <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
-                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500 tracking-tighter">
-                  50
-                </h2>
-                <div>
-                  <p className="text-gray-500">Populer</p>
-                  <p className="uppercase font-semibold">Master Chefs</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="service" className="py-12 bg-gray-100">
-        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
-          Layanan Yang <span className="text-orange-600">Kami Sediakan</span>
-        </h2>
-
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid gird-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease"
-              >
-                <div className="mb-4 text-orange-500 group-hover:text-gray-50 transition-colors duration-300 ease">
-                  {service.icon}
-                </div>
-                <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
-                  {service.title}
-                </h2>
-                <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
-                  {service.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="menu" className="py-12">
-        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
-          Pilihan Lezat <span className="text-orange-500">untuk Kamu</span>
-        </h2>
-
-        <div className="container w-fit mx-auto flex justify-center items-center mb-12 space-x-6 border-b-2 border-gray-200">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setCategory(cat.id)}
-              className={`flex items-center pb-4 cursor-pointer space-x-2 border-b-2 ${category === cat.id ? "border-orange-500" : "border-white"}`}
-            >
-              <h5 className="text-orange-500">{cat.icon}</h5>
-              <div className="text-left text-sm">
-                <p className="text-gray-500">{cat.side_label}</p>
-                <p className="uppercase font-bold">{cat.label}</p>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <div className="container w-full mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-4 lg:gap-6">
-            {currentMenu.map((food) => (
-              <div
-                key={food.id}
-                className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer overflow-hidden transition-all duration-300 ease hover:shadow-xl hoover:shadow-gray-600"
-              >
-                <div className="w-full h-48 overflow-hidden">
-                  <img
-                    src={food.image}
-                    alt={food.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="p-4 flex flex-col h-48">
-                  <h2 className="font-bold text-xl mb-2">{food.title}</h2>
-                  <p className="text-gray-700 mb-4 flex-grow">
-                    {food.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <button
-                      onClick={() => handleWa(food)}
-                      className="py-2 px-6 bg-orange-500 rounded-md text-white cursor-pointer"
-                    >
-                      Pesan
-                    </button>
-                    <p className="text-gray-700 italic">{food.price}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gray-100 py-12">
-        <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
-          Apa Kata <span className="text-orange-500">Sobat Kuliner?</span>
-        </h2>
-
-        <div className="container w-full mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-6">
-            {testimonials.map((testimoni) => (
-              <div
-                key={testimoni.name}
-                className="group relative cursor-pointer rounded-3xl p-8 border border border-gray-200 shadow-sm shadow-gray-400 transition-all duration-300 ease hover:border-orange-500 hover:shadow-orange-400"
-              >
-                <Quote
-                  size={40}
-                  className="absolute -top-4 rotate-180 group-hover:text-orange-500 transition-all duration-300 ease"
-                />
-                <div className="flex items-center space-x-4 pt-4">
-                  <div className="h-14 lg:h-24 aspect-square rounded-full border-2 border-white shadow-sm shadow-gray-400 overflow-hidden">
-                    <img
-                      src={testimoni.image}
-                      className="h-full aspect sequare"
-                      alt={testimoni.name}
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-bold tracking-tighter">
-                      {testimoni.name}
-                    </h2>
-                    <h4 className="text-sm font-bold text-indigo-900 tracking-tighter uppercase">
-                      {testimoni.title}
-                    </h4>
-                  </div>
-                </div>
-                <div className="pt-5">
-                  <p className="italic text-lg">"{testimoni.content}"</p>
-
-                  <div className="flex items-center pt-5">
-                    {[...Array(5)].map((_, star) => {
-                      const starValue = star + 1;
-                      return (
-                        <Star
-                          key={star}
-                          size={21}
-                          fill={
-                            starValue <= testimoni.star ? "#FBBF24" : "none"
-                          }
-                          color={
-                            starValue <= testimoni.star ? "#FBBF24" : "#D1D5DB"
-                          }
+                <div className="py-16">
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src="https://portablepartitions.com.au/wp-content/uploads/2022/06/hotel-restaurant-design.jpg"
+                            className="h-full w-full object-cover opacity-5"
+                            alt="background"
                         />
-                      );
-                    })}
-                  </div>
+                    </div>
+
+                    <div className="container mx-auto flex justify-center items-center min-h-screen lg:min-h-fit px-2 relative z-10">
+                        <div className="grid items-center justify-center gap-12 md:grid-cols-2">
+                            <div className="order-2 md:order-1">
+                                <div className="max-w-xl rounded-2xl p-4 md:p-0 lg:p-12">
+                                    <h2 className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-6xl">
+                                        Nikmati Cita Rasa{" "}
+                                        <span className="text-orange-400">
+                                            Terbaik
+                                        </span>{" "}
+                                        di Setiap Gigitan
+                                    </h2>
+                                    <p className="mb-8 text-lg text-red-100">
+                                        Hidangan dibuat dari bahan segar
+                                        pilihan, disajikan dengan rasa autentik
+                                        yang tak terlupakan oleh chef
+                                        berpengalaman.
+                                    </p>
+
+                                    <div className="flex items-center text-sm md:text-base gap-4">
+                                        <a
+                                            href="#menu"
+                                            className="inline-block rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white transition-all easex hover:bg-orange-400 hover:shadow-lg active:scale-95"
+                                        >
+                                            Lihat Menu
+                                        </a>
+                                        <button
+                                            onClick={handlePesanSekarang}
+                                            className="inline-block rounded-lg border-2 border-orange-500 px-6 py-3 font-semibold cursor-pointer text-orange-500 transition-all easex hover:bg-orange-500 hover:text-white active:scale-95"
+                                        >
+                                            Pesan Sekarang
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="order-1 flex justify-center md:order-2">
+                                <div className="relative">
+                                    <div className="absolute -inset-4 rounded-full"></div>
+
+                                    <img
+                                        src="https://www.goldendragonhouseware.com/timthumb.php?src=files/recipe/CDBSp-6-tips-dan-variasi-cara-menghidangkan-makanan-ala-restoran-mewah.jpg&w=&h=470&zc=1"
+                                        alt="Menu Makanan"
+                                        className="animation-rotate relative h-68 aspect-square rounded-full border-8 border-white object-cover sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
-      <section id="contact" className="py-12">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
-            <h3 className="text-xl md:text-2xl text-orange-600 italic">
-              Kontak Kami
-            </h3>
-            <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900">
-              Ada Pertanyaan?{" "}
-              <span className="text-orange-500">Hubungi Kami</span>
-            </h2>
-          </div>
+            <section id="about" className="py-12">
+                <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
+                    Kehangatan di{" "}
+                    <span className="text-orange-600">Setiap Hidangan</span>
+                </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="nama" // Tambahkan name
-                    value={formData.nama} // Bind value
-                    onChange={handleChange} // Tambahkan handler
-                    placeholder="Nama Anda"
-                    required
-                    className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email Anda"
-                    required
-                    className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  />
+                <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+                    <div className="lg:w-1/2 w-full">
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="text-left">
+                                <img
+                                    src="https://themewagon.github.io/restoran/img/about-1.jpg"
+                                    alt=""
+                                    className="rounded w-full transition-all ease duration-300 hover:scale-98"
+                                />
+                            </div>
+                            <div className="relative text-left mt-[25%]">
+                                <img
+                                    src="https://themewagon.github.io/restoran/img/about-2.jpg"
+                                    alt=""
+                                    className="absolute bottom-0 left-0 rounded w-3/4 transition-all ease duration-300 hover:scale-98"
+                                />
+                            </div>
+                            <div className="relative">
+                                <img
+                                    src="https://themewagon.github.io/restoran/img/about-3.jpg"
+                                    alt=""
+                                    className="absolute top-0 right-0 rounded w-3/4 transition-all ease duration-300 hover:scale-98"
+                                />
+                            </div>
+                            <div className="text-right">
+                                <img
+                                    src="https://themewagon.github.io/restoran/img/about-4.jpg"
+                                    alt=""
+                                    className="rounded w-full transition-all ease duration-300 hover:scale-98"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="lg:w-1/2 w-full">
+                        <h3 className="text-2xl text-orange-600 italic mb-2">
+                            Tentang Kami
+                        </h3>
+                        <h2 className="text-4xl font-bold mb-6">
+                            Selamat Datang di{" "}
+                            <span className="text-orange-600 uppercase">
+                                keyfood
+                            </span>
+                        </h2>
+
+                        <p className="text-gray-600 mb-6 max-w-lg">
+                            Di{" "}
+                            <span className="font-bold text-orange-600">
+                                KeyFood Genteng
+                            </span>
+                            , kami percaya bahwa makan bukan sekadar pelepas
+                            lapar, melainkan sebuah perayaan kebersamaan.
+                            Berawal dari keinginan kami untuk menyatukan beragam
+                            cita rasa terbaik dalam satu atap, kami menghadirkan
+                            simfoni kuliner—mulai dari jajanan lokal yang
+                            autentik hingga kreasi kekinian yang memanjakan
+                            lidah.
+                        </p>
+
+                        <p className="text-gray-600 mb-6 max-w-lg">
+                            Setiap sudut dan hidangan yang tersedia adalah hasil
+                            kurasi untuk menjawab keragaman selera
+                            Anda—memadukan kemeriahan pusat kuliner dengan
+                            kenyamanan yang hangat. Kami mengundang Anda untuk
+                            mampir sejenak, melepas lelah setelah beraktivitas,
+                            dan menciptakan momen berharga bersama teman maupun
+                            keluarga dalam suasana yang penuh keakraban.
+                        </p>
+
+                        <div className="flex flex-col md:flex-row items-start space-y-4 md:space-x-4">
+                            <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
+                                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500 tracking-tighter">
+                                    15
+                                </h2>
+                                <div>
+                                    <p className="text-gray-500">Tahun</p>
+                                    <p className="uppercase font-semibold">
+                                        BERDIRI
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="bg-gray-100 rounded-md flex items-center justify-center px-4 py-1 border-l-6 border-orange-500 space-x-4">
+                                <h2 className="font-bold md:pb-2 text-4xl lg:text-6xl text-orange-500 tracking-tighter">
+                                    50
+                                </h2>
+                                <div>
+                                    <p className="text-gray-500">Populer</p>
+                                    <p className="uppercase font-semibold">
+                                        Master Chefs
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <input
-                  type="text"
-                  name="subjek"
-                  value={formData.subjek}
-                  onChange={handleChange}
-                  placeholder="Subjek"
-                  required
-                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                />
-                <textarea
-                  name="pesan"
-                  value={formData.pesan}
-                  onChange={handleChange}
-                  rows="4"
-                  placeholder="Pesan Anda"
-                  required
-                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                ></textarea>
+            </section>
 
-                <button
-                  type="submit"
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white cursor-pointer font-bold py-3 rounded-lg transition-all active:scale-95"
-                >
-                  Kirim Pesan
-                </button>
-              </form>
-            </div>
+            <section id="service" className="py-12 bg-gray-100">
+                <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
+                    Layanan Yang{" "}
+                    <span className="text-orange-600">Kami Sediakan</span>
+                </h2>
 
-            <div className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-orange-100 p-3 rounded-full text-orange-600">
-                    <Coffee size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-700 uppercase font-bold">
-                      Booking
-                    </p>
-                    <p className="text-gray-900 font-medium">
-                      keyfoodgtg@gmail.com
-                    </p>
-                  </div>
+                <div className="container mx-auto px-6 lg:px-12">
+                    <div className="grid gird-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                        {services.map(service => (
+                            <div
+                                key={service.id}
+                                className="group bg-white shadow-sm shadow-gray-300 py-10 px-6 cursor-pointer rounded-md hover:bg-orange-400 transition-colors duration-300 ease"
+                            >
+                                <div className="mb-4 text-orange-500 group-hover:text-gray-50 transition-colors duration-300 ease">
+                                    {service.icon}
+                                </div>
+                                <h2 className="font-bold text-xl mb-2 group-hover:text-gray-50 transition-colors duration-300 ease">
+                                    {service.title}
+                                </h2>
+                                <p className="text-gray-500 group-hover:text-gray-100 transition-colors duration-300 ease">
+                                    {service.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="bg-orange-100 p-3 rounded-full text-orange-600">
-                    <User size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-700 uppercase font-bold">
-                      WhatsApp
-                    </p>
-                    <p className="text-gray-900 font-medium">
-                      +62 856-4583-7298
-                    </p>
-                  </div>
-                </div>
-              </div>
+            </section>
 
-              <div className="w-full h-64 bg-gray-300 rounded-2xl overflow-hidden transition-all duration-500">
-                <iframe
-                  className="h-full w-full"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4400749336614!2d114.14326577413034!3d-8.35829538422854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd155636c195abd%3A0x5ac2ca8c3123396e!2sKEYFOOD%20GENTENG!5e0!3m2!1sid!2sid!4v1775831773920!5m2!1sid!2sid"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+            <section id="menu" className="py-12">
+                <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
+                    Pilihan Lezat{" "}
+                    <span className="text-orange-500">untuk Kamu</span>
+                </h2>
+
+                <div className="container w-fit mx-auto flex justify-center items-center mb-12 space-x-6 border-b-2 border-gray-200">
+                    {categories.map(cat => (
+                        <button
+                            key={cat.id}
+                            onClick={() => setCategory(cat.id)}
+                            className={`flex items-center pb-4 cursor-pointer space-x-2 border-b-2 ${
+                                category === cat.id
+                                    ? "border-orange-500"
+                                    : "border-white"
+                            }`}
+                        >
+                            <h5 className="text-orange-500">{cat.icon}</h5>
+                            <div className="text-left text-sm">
+                                <p className="text-gray-500">
+                                    {cat.side_label}
+                                </p>
+                                <p className="uppercase font-bold">
+                                    {cat.label}
+                                </p>
+                            </div>
+                        </button>
+                    ))}
+                </div>
+
+                <div className="container w-full mx-auto px-6 lg:px-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-4 lg:gap-6">
+                        {currentMenu.map(food => (
+                            <div
+                                key={food.id}
+                                className="flex flex-col h-full shadow-sm shadow-gray-300 rounded-xl cursor-pointer overflow-hidden transition-all duration-300 ease hover:shadow-xl hoover:shadow-gray-600"
+                            >
+                                <div className="w-full h-48 overflow-hidden">
+                                    <img
+                                        src={food.image}
+                                        alt={food.title}
+                                        loading="lazy"
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
+                                <div className="p-4 flex flex-col h-48">
+                                    <h2 className="font-bold text-xl mb-2">
+                                        {food.title}
+                                    </h2>
+                                    <p className="text-gray-700 mb-4 flex-grow">
+                                        {food.description}
+                                    </p>
+                                    <div className="flex items-center justify-between mt-auto">
+                                        <button
+                                            onClick={() => handleWa(food)}
+                                            className="py-2 px-6 bg-orange-500 rounded-md text-white cursor-pointer"
+                                        >
+                                            Pesan
+                                        </button>
+                                        <p className="text-gray-700 italic">
+                                            {food.price}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="bg-gray-100 py-12">
+                <h2 className="font-bold text-center text-2xl md:text-4xl mb-12 px-4">
+                    Apa Kata{" "}
+                    <span className="text-orange-500">Sobat Kuliner?</span>
+                </h2>
+
+                <div className="container w-full mx-auto px-6 lg:px-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-6">
+                        {testimonials.map(testimoni => (
+                            <div
+                                key={testimoni.name}
+                                className="group relative cursor-pointer rounded-3xl p-6 border border border-gray-200 shadow-sm shadow-gray-400 transition-all duration-300 ease hover:border-orange-500 hover:shadow-orange-400"
+                            >
+                                <Quote
+                                    size={40}
+                                    className="absolute -top-4 rotate-180 group-hover:text-orange-500 transition-all duration-300 ease"
+                                />
+                                <div className="flex items-center space-x-4 pt-4">
+                                    <div className="h-14 lg:h-24 aspect-square rounded-full border-2 border-white shadow-sm shadow-gray-400 overflow-hidden">
+                                        <img
+                                            src={testimoni.image}
+                                            className="h-full aspect sequare"
+                                            alt={testimoni.name}
+                                        />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-xl font-bold tracking-tighter">
+                                            {testimoni.name}
+                                        </h2>
+                                        <h4 className="text-sm font-bold text-indigo-900 tracking-tighter uppercase">
+                                            {testimoni.title}
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div className="pt-5">
+                                    <p className="italic">
+                                        "{testimoni.content}"
+                                    </p>
+
+                                    <div className="flex items-center pt-5">
+                                        {[...Array(5)].map((_, star) => {
+                                            const starValue = star + 1;
+                                            return (
+                                                <Star
+                                                    key={star}
+                                                    size={21}
+                                                    fill={
+                                                        starValue <=
+                                                        testimoni.star
+                                                            ? "#FBBF24"
+                                                            : "none"
+                                                    }
+                                                    color={
+                                                        starValue <=
+                                                        testimoni.star
+                                                            ? "#FBBF24"
+                                                            : "#D1D5DB"
+                                                    }
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" className="py-12">
+                <div className="container mx-auto px-6 lg:px-12">
+                    <div className="text-center mb-12">
+                        <h3 className="text-xl md:text-2xl text-orange-600 italic">
+                            Kontak Kami
+                        </h3>
+                        <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900">
+                            Ada Pertanyaan?{" "}
+                            <span className="text-orange-500">
+                                Hubungi Kami
+                            </span>
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                        <div className="bg-white p-8 rounded-2xl shadow-lg">
+                            <form className="space-y-4" onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input
+                                        type="text"
+                                        name="nama" // Tambahkan name
+                                        value={formData.nama} // Bind value
+                                        onChange={handleChange} // Tambahkan handler
+                                        placeholder="Nama Anda"
+                                        required
+                                        className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                    />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="Email Anda"
+                                        required
+                                        className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                    />
+                                </div>
+                                <input
+                                    type="text"
+                                    name="subjek"
+                                    value={formData.subjek}
+                                    onChange={handleChange}
+                                    placeholder="Subjek"
+                                    required
+                                    className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                />
+                                <textarea
+                                    name="pesan"
+                                    value={formData.pesan}
+                                    onChange={handleChange}
+                                    rows="4"
+                                    placeholder="Pesan Anda"
+                                    required
+                                    className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                ></textarea>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-orange-500 hover:bg-orange-600 text-white cursor-pointer font-bold py-3 rounded-lg transition-all active:scale-95"
+                                >
+                                    Kirim Pesan
+                                </button>
+                            </form>
+                        </div>
+
+                        <div className="space-y-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="flex items-center space-x-4">
+                                    <div className="bg-orange-100 p-3 rounded-full text-orange-600">
+                                        <Coffee size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-gray-700 uppercase font-bold">
+                                            Booking
+                                        </p>
+                                        <p className="text-gray-900 font-medium">
+                                            keyfoodgtg@gmail.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center space-x-4">
+                                    <div className="bg-orange-100 p-3 rounded-full text-orange-600">
+                                        <User size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-gray-700 uppercase font-bold">
+                                            WhatsApp
+                                        </p>
+                                        <p className="text-gray-900 font-medium">
+                                            +62 856-4583-7298
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="w-full h-64 bg-gray-300 rounded-2xl overflow-hidden transition-all duration-500">
+                                <iframe
+                                    className="h-full w-full"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4400749336614!2d114.14326577413034!3d-8.35829538422854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd155636c195abd%3A0x5ac2ca8c3123396e!2sKEYFOOD%20GENTENG!5e0!3m2!1sid!2sid!4v1775831773920!5m2!1sid!2sid"
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    );
 }
 
 export default PageMain;
